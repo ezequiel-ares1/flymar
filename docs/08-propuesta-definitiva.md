@@ -5,9 +5,31 @@ Sustituye al [documento 04](./04-propuesta-de-solucion.md), integra el [document
 
 ---
 
-# Parte I · Lo que cambió
+# Parte 0 · Nota de método: señales, no especificaciones
 
-La segunda conversación con Marcela cambió cuatro cosas. No son matices: **tres de ellas invalidan restricciones sobre las que estaba construida toda la propuesta anterior, y la cuarta introduce un requisito nuevo que ninguna propuesta —ni la mía ni las de terceros— había considerado.**
+Antes de nada, una distinción que condiciona la lectura de todo el documento.
+
+En la segunda reunión Marcela dijo varias cosas sobre *cómo* le gustaría que funcionara esto: una encuesta en el celular, ordenada por categoría, que se parezca a su diseño actual, que el manager no note que hay una herramienta. **Ninguna de esas frases es un requisito.** Son ideas que se le ocurrieron mientras pensaba en voz alta sobre un problema que sí conoce muy bien.
+
+Tratarlas como especificación sería un error, por dos razones:
+
+1. **Ella aporta el problema; nosotros aportamos la solución.** Marcela es la experta en su operación, en sus managers y en su mercado. No es —ni tiene por qué ser— experta en diseño de sistemas. Cuando dice *"una encuesta en el celular"* no está especificando una interfaz: está expresando que quiere que el dato llegue ordenado y que el manager no se demore.
+2. **La primera solución que se le ocurre a alguien casi nunca es la mejor.** Es la que está más cerca de lo que ya conoce. El trabajo del experto es leer la intención detrás de la sugerencia y proponer algo mejor — a veces mucho más simple de lo que el cliente imaginaba.
+
+Por eso el método de este documento es, para cada cosa que dijo:
+
+```
+     LO QUE DIJO          →     LA NECESIDAD REAL     →     NUESTRA RESPUESTA
+   (señal, no diseño)         (lo que hay debajo)        (puede ser distinta)
+```
+
+Y una consecuencia práctica: **varias de las decisiones de este documento no coinciden con lo que Marcela sugirió, y eso es correcto.** Donde nos apartamos, se dice explícitamente por qué. Si al final la solución termina siendo exactamente la que ella imaginó, será porque el análisis lo confirmó — no porque lo diera por sentado.
+
+---
+
+# Parte I · Lo que la reunión reveló
+
+La segunda conversación aportó cuatro señales importantes. **Dos levantan restricciones reales, una revela una preocupación de negocio legítima, y otra es un hecho duro del contexto.** Ninguna dicta el diseño.
 
 ## ① Canva deja de ser un requisito
 
@@ -25,27 +47,35 @@ Tres cosas se desprenden de ahí, y las tres importan:
 
 **Consecuencia:** se desbloquea el motor de composición propio. Y con él, todo lo que la [propuesta V2](./06-propuesta-v2-plataforma.md) planteaba como aspiracional pasa a ser inmediato.
 
-## ② Marcela pidió, con sus propias palabras, la solución del documento 07
+## ② Se abre la puerta a intervenir en el origen
 
-Esto fue lo más llamativo de la conversación. Sin haber leído el documento, describió el Nivel 3 casi literalmente:
+Lo importante de esta señal no es la forma que Marcela imaginó, sino que **dejó de defender el email como canal único**. Eso es lo que se levanta.
 
-> *"Lo que también estoy pensando es que se pueda así como **llenar el formulario, que lo puedan hacer desde el celular, como cuando llenas una encuesta**."*
+> *"Lo que también estoy pensando es que se pueda así como llenar el formulario, que lo puedan hacer desde el celular, como cuando llenas una encuesta."*
 >
-> *"Que **ellos me llenen**, así como que sea una encuesta y ellos me llenen. 'Limón va a estar a tanto', ¿me entiendes?"*
+> *"Que ellos me llenen… 'Limón va a estar a tanto', ¿me entiendes?"*
 >
-> *"Si yo les enviara la encuesta **semana tras semana** y en el celular está como **primero carnicería** y me pongan todos los productos de carnicería, y luego…"*
+> *"Si yo les enviara la encuesta semana tras semana y en el celular está como primero carnicería…"*
 
-Cuatro requisitos concretos en tres frases: **móvil**, **tipo encuesta**, **recurrente semanal**, **agrupada por categoría en el orden del flyer**.
-
-Y cerró con el argumento de negocio:
+Y el cierre, que es donde está la intención de verdad:
 
 > *"En vez de que ellos lo hagan así y luego yo esa misma información la pase, **que ya sea de una**."*
 
-Es exactamente el diagnóstico del documento 07: el dato se estructura, se degrada y se vuelve a estructurar. Marcela lo vio sola.
+**"Que ya sea de una" es la necesidad. "Una encuesta en el celular" es su hipótesis de cómo lograrlo.**
 
-## ③ Aparece el riesgo de desintermediación
+| Lo que dijo | Lo que revela | Nuestra respuesta |
+|---|---|---|
+| "Una encuesta en el celular" | El manager debe poder responder desde donde está: el pasillo de la tienda, no un escritorio | ✅ Móvil, sí. Pero **una encuesta de 16 campos en un teléfono sigue siendo trabajo tedioso.** Ver Parte III. |
+| "Que ellos me llenen" | Ella no quiere transcribir | ✅ Correcto — pero **la mejor forma de que no transcriba no es que transcriba el manager: es que nadie transcriba.** |
+| "Semana tras semana" | Debe ser un ritmo, no una petición puntual | ✅ Adoptado tal cual. |
+| "Primero carnicería" | Que llegue en el orden en que ella lo necesita | ✅ Adoptado, aunque es una preferencia de presentación, no una restricción de arquitectura. |
+| "Ya no defiendo el email como único canal" | *(implícito, y es lo más valioso)* | ✅ **Esto es lo que realmente se levanta.** |
 
-Este es el requisito nuevo, y es delicado:
+**Dónde nos apartamos:** Marcela imagina que el manager llene un formulario. Nosotros vamos a proponer que **el manager no llene nada** — que confirme, elija o simplemente apruebe. El formulario existe, pero como el peldaño de en medio, no como el objetivo. La razón está en la Parte III.
+
+## ③ Aparece una preocupación de negocio legítima
+
+Esta señal no es un requisito de producto; es un miedo bien fundado que hay que resolver, aunque no de la manera que ella propone:
 
 > *"**Yo no quiero que ellos sepan que ellos lo están armando**, porque si no van a decir 'pues yo lo puedo hacer'."*
 >
@@ -68,17 +98,19 @@ Esto convierte el proyecto de "ahorro de tiempo" en **condición para poder crec
 
 ---
 
-## Tabla de restricciones: antes y ahora
+## Separando lo que obliga de lo que solo orienta
 
-| Restricción de la propuesta V1 | Estado | Consecuencia |
+| Punto | ¿Qué es? | Consecuencia de diseño |
 |---|---|---|
-| El resultado debe quedar editable en Canva | ❌ **Levantada** | Motor de composición propio |
-| Nada de plataforma para los managers | ❌ **Levantada por ella misma** | Formulario móvil recurrente |
-| El manager solo usa email | ⚠️ **Matizada** | Email sigue como carril de respaldo, no como único |
-| Presupuesto mínimo | ⚠️ **Matizada** | Ahora hay caso de negocio: sin esto no puede crecer |
-| Mantenimiento mínimo | ✅ **Sigue** | Sigue sin equipo técnico |
-| **NUEVA: el manager no debe percibir que "se arma solo"** | 🆕 | Requisito de diseño de producto |
-| **NUEVA: escalar sin sumar personal** | 🆕 | Requisito de arquitectura |
+| El resultado debe quedar editable en Canva | ❌ **Restricción levantada** | Motor de composición propio |
+| El manager solo usa email | ❌ **Restricción levantada** | Se puede intervenir en el origen |
+| Escalar sin sumar personal | ✅ **Restricción real y dura** | Condiciona toda la arquitectura |
+| Sin equipo técnico para mantener | ✅ **Restricción real** | Pocas piezas móviles, nada frágil |
+| No perder la intermediación con el cliente | ⚠️ **Objetivo de negocio legítimo** | Se resuelve, pero **no ocultando** (Parte II) |
+| "Una encuesta en el celular" | 💡 **Sugerencia** | Se toma la intención, no la forma (Parte III) |
+| "Primero carnicería" | 💡 **Preferencia** | Se adopta; cuesta cero |
+| "Que se parezca a mi diseño" | 💡 **Sugerencia** | Se toma la intención — y se propone algo mejor (Parte V) |
+| "Que no sepan que uso una herramienta" | 💡 **Táctica que ella propuso** | **No se adopta.** Se resuelve el problema de fondo de otra forma (Parte II) |
 
 ---
 
@@ -292,38 +324,79 @@ Y hay un detalle final que conviene decirle a Marcela con claridad: **este cambi
 
 # Parte III · La nueva captura, en detalle
 
-Este es el corazón de la propuesta revisada, y responde punto por punto a lo que Marcela pidió.
+Aquí es donde nos apartamos con más claridad de lo que Marcela sugirió — y donde más valor aporta mirarlo con criterio técnico.
 
-## 3.1 El principio: invertir el flujo
+## 3.0 Por qué un formulario no es la mejor respuesta
 
-El cambio conceptual, en una imagen:
+Marcela imaginó una encuesta que el manager llena. Es una idea razonable y sería una mejora enorme frente al Excel. Pero al analizarla con detalle, **un formulario no resuelve el problema: lo traslada.**
+
+Tres objeciones concretas:
+
+**① Dieciséis productos en un teléfono siguen siendo trabajo.** Cuatro categorías, cuatro campos por producto, nombres que hay que escribir bien en dos idiomas. Un formulario honesto de esa magnitud toma entre 8 y 12 minutos en móvil. Es mejor que 25, pero está lejos de resolver el problema de puntualidad — que es lo que hace que las ofertas se terminen al día siguiente.
+
+**② Traslada la transcripción, no la elimina.** Hoy transcribe Fresco. Con un formulario en blanco, transcribe el manager. **La operación en conjunto sigue capturando el mismo dato a mano** — solo que ahora lo hace quien menos tiempo tiene y menos le importa el resultado.
+
+**③ Un formulario en blanco pide *datos*; el manager tiene *decisiones*.** El trabajo real del manager no es escribir "pierna de pollo, 0.89, LB". Eso ya lo sabe. Su trabajo es **decidir qué conviene ofertar esta semana** — según lo que tiene en exceso, lo que está por vencer, lo que le dejó margen, lo que el proveedor le está empujando. Un formulario ignora por completo esa parte, que es la única en la que él aporta valor.
+
+> **La reformulación:** el sistema no debe pedir datos. **Debe proponer decisiones y recibir una elección.**
+
+Y hay una consecuencia adicional, que conecta con la Parte II: **un formulario en blanco refuerza la sensación de "esto lo hago yo"**, que es justo lo que Marcela teme. Una propuesta que hay que aprobar produce lo contrario.
+
+## 3.1 La jerarquía de esfuerzo — el marco de diseño real
+
+En vez de elegir *una* forma de captura, el criterio correcto es minimizar el esfuerzo del manager, escalón por escalón. Cada nivel es una implementación distinta y **se avanza en la medida en que el sistema acumula información**:
 
 ```
-ANTES                                    AHORA
-─────                                    ─────
-"Mándame tus ofertas"                    "Esto preparamos para ti,
-        ↓                                 confirma o ajusta"
-El manager abre Excel                            ↓
-        ↓                                 El manager abre WhatsApp
-Escribe 16 productos                             ↓
-        ↓                                 Ve 16 productos ya propuestos
-Maqueta las columnas                             ↓
-        ↓                                 Ajusta 3 precios
-Adjunta y manda                                  ↓
-        ↓                                 Toca «Confirmar»
-~20–30 minutos                            ~90 segundos
+  ESFUERZO DEL MANAGER            QUÉ HACE                       CUÁNDO
+  ─────────────────────────────────────────────────────────────────────
+  25 min   Hoy                    Arma un Excel y lo adjunta      —
+
+  10 min   Formulario en blanco   Escribe 16 productos            sem. 1–2
+           ← lo que Marcela imaginó                               (solo al arrancar)
+
+   90 s    Confirmar propuesta    Revisa 16 sugeridos,            sem. 3+
+                                  ajusta 2–3 precios              ← el objetivo realista
+
+   20 s    Elegir entre opciones  «Plan A, B o C»                 mes 2+
+                                  ← decide, no redacta
+
+   10 s    Aprobar de un toque    Un botón                        mes 4+
+                                  ← con datos del POS
+
+    0 s    Aprobación tácita      Nada. Si no responde en X       mes 6+
+                                  horas, sale lo propuesto        ← para tiendas
+                                  y él puede corregir después       de confianza
 ```
 
-**Y aquí está la elegancia del diseño:** esta inversión resuelve simultáneamente los cuatro problemas.
+**El formulario en blanco existe, pero solo como punto de partida** — durante las dos primeras semanas de cada tienda nueva, mientras no hay histórico. Después deja de usarse. Presentarlo como *la* solución sería quedarse en el escalón más caro de todos los que están disponibles.
 
-| Problema | Cómo lo resuelve la inversión del flujo |
+### Los dos peldaños que importan
+
+**Escalón "elegir entre opciones" (20 s).** En lugar de una lista para confirmar, tres planes armados:
+
+```
+  PLAN A · Rotación              PLAN B · Margen           PLAN C · Tráfico
+  Lo que más se movió            Mejor margen              Precios agresivos
+  las últimas 4 semanas          histórico                 para atraer gente
+
+  [ Ver ]  [ Elegir ]            [ Ver ]  [ Elegir ]       [ Ver ]  [ Elegir ]
+```
+
+Esto **respeta exactamente lo que Marcela dijo** —*"ellos deciden sus ofertas"*— y a la vez sube el valor de Fresco: el manager sigue decidiendo, pero ahora decide **entre opciones fundamentadas** en lugar de improvisar. Es el mismo principio por el que un buen asesor no pregunta "¿qué quieres?" sino "te recomiendo esto, esto o esto".
+
+**Escalón "aprobación tácita" (0 s).** Para sucursales con historial estable: si no responden antes de cierta hora, sale la propuesta y se avisa. Suena arriesgado y no lo es tanto — **hoy el riesgo mayor no es publicar algo subóptimo, es no publicar nada porque el manager no contestó.**
+
+## 3.2 Lo que esto significa para el diseño
+
+| Problema | Cómo lo resuelve la jerarquía |
 |---|---|
-| El manager tarda y a veces no envía | Pasa de 25 minutos a 90 segundos. La puntualidad deja de ser un problema de voluntad. |
-| El dato llega degradado | Nunca se degrada: nace estructurado y así se queda. |
-| Fresco transcribe | No hay nada que transcribir. |
-| **El manager podría sentir que "lo hace él"** | **Al contrario: recibe una propuesta ya hecha. La percepción es que Fresco trabajó para él.** |
+| El manager tarda y a veces no envía | Su esfuerzo cae de 25 min a 90 s, luego a 20 s, luego a cero. La puntualidad deja de depender de su voluntad. |
+| El dato llega degradado | Nunca se degrada: nace estructurado del catálogo y así se queda. |
+| Fresco transcribe | Nadie transcribe. La transcripción desaparece del sistema, no cambia de manos. |
+| El manager podría sentir que "lo hace él" | Recibe algo preparado y decide. La percepción es de servicio, no de autoservicio. |
+| **El manager no aporta su criterio** | **Sí lo aporta — en lo único donde su criterio vale: elegir qué ofertar. Deja de aportarlo en tecleo.** |
 
-> El último punto merece énfasis. Un formulario en blanco dice *"llénalo tú"*. Una propuesta pre-llenada dice *"te lo preparamos"*. **Es el mismo mecanismo técnico y la percepción opuesta.**
+> Un formulario en blanco dice *"llénalo tú"*. Una propuesta dice *"te lo preparamos"*. Tres planes dicen *"analizamos tu tienda y estas son tus mejores opciones"*. **Es el mismo mecanismo técnico y tres percepciones completamente distintas** — y la tercera es la que justifica una tarifa mayor.
 
 ## 3.2 Cómo se ve, concretamente
 
@@ -412,26 +485,36 @@ Cuatro pantallas —carnicería, produce, abarrotes, panadería, **en el orden d
 
 **El ciclo completo —solicitud, captura, producción, aprobación— ocurre dentro de una conversación de WhatsApp que dura 20 minutos, y el manager tocó cinco botones.** Hoy ese ciclo toma entre medio día y día y medio.
 
-## 3.3 Por qué WhatsApp y no un portal ni email
+## 3.3 La elección del canal — decisión nuestra, no de Marcela
 
-La objeción original de Marcela era contra un **portal**, y era correcta:
+Marcela dijo *"en el celular, como una encuesta"*. Eso define **la restricción** (móvil, sin fricción), no **la implementación**. La elección del canal es una decisión técnica y hay que justificarla como tal.
 
-> *"En cada sucursal hay muchos managers y a veces los cambian. Me ha costado mucho trabajo, primero, que me lo envíen por email."*
+Cinco opciones evaluadas:
 
-Un portal exige cuenta, contraseña, capacitación y recuperar accesos cuando alguien rota. WhatsApp no exige nada de eso:
-
-| | Portal web | Email | **WhatsApp Flows** |
+| Opción | A favor | En contra | Veredicto |
 |---|---|---|---|
-| Requiere crear cuenta | Sí | No | **No** |
-| Requiere instalar algo | No, pero sí aprender | No | **No — ya lo tiene abierto** |
+| **Google Forms / Typeform** | Gratis, inmediato, cero desarrollo | No devuelve dato realmente estructurado sin trabajo extra; no permite propuesta pre-llenada personalizada por tienda; se siente genérico y ajeno a la marca | ❌ Sirve para la semana 1, no para el producto |
+| **Portal web / PWA** | Control total de la experiencia | Cuenta, contraseña, capacitación, y hay que recuperar accesos cada vez que rota un manager. Es contra esto que Marcela objetó, con razón | ❌ |
+| **SMS con enlace** | Universal, sin app | El enlace saca al manager de su contexto; sin identidad ni hilo de conversación; caro en EE. UU. | ❌ |
+| **Email enriquecido** | Ya lo usan | Se responde mal desde el móvil; tasa de respuesta real del 1–5 %; no devuelve dato estructurado | ⚠️ Se mantiene como carril de respaldo |
+| **WhatsApp Business + Flows** | Ya está instalado y abierto; formularios estructurados dentro del chat; identidad y conversación persistente; el flyer vuelve por el mismo hilo | Requiere verificación del negocio (tarda); costo por conversación; depende de Meta | ✅ **Elegido** |
+
+Los datos que inclinan la decisión:
+
+| | Portal | Email | **WhatsApp** |
+|---|---|---|---|
+| Crear cuenta | Sí | No | **No** |
+| Aprender algo nuevo | Sí | No | **No — ya lo tiene abierto** |
 | Cambio de manager | Alta, permisos, capacitación | Cambiar dirección | **Agregar un número** |
 | Tasa de apertura | — | 20–25 % real | **98 %** |
 | Tasa de respuesta | Baja | 1–5 % | **40–60 %** (hasta 12×) |
 | Uso entre hispanos en EE. UU. | — | — | **46 % regularmente** |
 | Devuelve dato estructurado | Sí | No | **Sí (JSON validado)** |
-| Se puede usar desde el celular en el pasillo de la tienda | Mal | Mal | **Es su caso natural** |
+| Usable en el pasillo de la tienda | Mal | Mal | **Es su caso natural** |
 
-Ese último punto no es menor: el manager de carnicería no está frente a una computadora. Está en la tienda, con el teléfono en la mano.
+Ese último punto es el que más pesa: **el manager de carnicería no está frente a una computadora. Está en la tienda, con el teléfono en la mano y las manos ocupadas.**
+
+> **Y una advertencia honesta:** WhatsApp es la elección correcta *hoy*, con la información disponible. Si el piloto de dos sucursales muestra que la adopción es baja o que la verificación de Meta se vuelve un problema, se cambia. **Toda la lógica vive detrás de un adaptador de canal**, de modo que sustituir WhatsApp por otra cosa afecte un módulo y no la arquitectura.
 
 ## 3.4 Tres carriles: nadie se queda fuera
 
@@ -571,6 +654,20 @@ Con la restricción levantada, se abren tres caminos:
 **Recomendación: C durante los primeros tres meses, B como destino.**
 
 La transición importa porque el equipo de Marcela sabe usar Canva y la confianza se construye gradualmente. El sistema produce el flyer terminado; si alguien quiere retocarlo, se exporta y se abre en Canva como siempre. **A medida que la confianza sube, esa salida se usa cada vez menos, hasta que deja de usarse.**
+
+### Y una discrepancia deliberada: no replicar el diseño actual
+
+Marcela dijo *"que se parezca a mi diseño, lo más que se pueda"*, y las dos propuestas de terceros se organizaron alrededor de esa idea — *"reproduce el template al detalle"*.
+
+**Es la meta equivocada, y conviene decirlo.** El diseño actual no se eligió por rendimiento: se heredó. Nadie ha comprobado nunca si ese orden de categorías, ese tamaño de foto o esa jerarquía de precio venden más que otra alternativa. Optimizar por parecido significa **congelar para siempre una decisión que nunca se validó**.
+
+Lo que propongo en su lugar:
+
+1. **Punto de partida:** una plantilla que respete la identidad visual —colores de la tienda, tipo de composición, la sensación general— para que nadie sienta un cambio brusco.
+2. **Mejoras deliberadas desde el inicio**, que la plantilla de Canva no permite hacer bien: contraste y legibilidad del precio a tamaño de miniatura en el feed —que es como el 90 % de la gente lo ve—, jerarquía visual real entre producto héroe y relleno, y formatos nativos para 4:5 y 9:16 en vez de recortar.
+3. **A partir del mes 4, el diseño se optimiza con datos.** Cuando exista atribución (Parte IV), se puede probar: ¿el producto en la primera fila rota más? ¿El precio en círculo rojo funciona mejor que en banda? Eso convierte al diseño en una variable medible, no en una preferencia.
+
+**Ese es el argumento con el que Marcela le vende el cambio a su cliente**, y es mucho más fuerte que *"cambiamos de herramienta"*: pasa de *"se parece a lo que ya tenías"* a *"esta versión vende más, y te lo puedo demostrar"*.
 
 ## 5.2 La plantilla como dato
 
@@ -756,7 +853,7 @@ Deliberadamente más simple que el del [documento 06](./06-propuesta-v2-platafor
 |---|---|---|
 | **Aplicación** | **Next.js + TypeScript** | Un solo lenguaje y un solo proyecto: tablero, API y render. El tipo `Offer` es el mismo objeto en todas partes. |
 | **Base de datos** | **Postgres + pgvector** (Neon o Supabase) | Relacional y vectorial en un motor. `tenant_id` y aislamiento por fila desde el inicio. |
-| **Captura** | **WhatsApp Business API** (Flows) | Lo que pidió Marcela. Meta Cloud API directa o vía proveedor. |
+| **Captura** | **WhatsApp Business API** (Flows) | Detrás de un adaptador de canal, para poder sustituirlo. Ver §3.3. |
 | **Extracción** | **Claude Sonnet 5** (visión + structured outputs) | Carril B. ~USD 0.05 por documento. |
 | **Render** | **Satori + resvg** | 50–200 ms, sin navegador. |
 | **Editor** | **Fabric.js** (o Polotno, USD 899) | Retoque sobre las seis primitivas. |
@@ -947,9 +1044,12 @@ El indicador **"tiendas por persona"** es el que responde a *"no es negocio"*. E
 
 | Decisión | Alternativa descartada | Razón |
 |---|---|---|
-| Captura antes que diseño | Diseño primero (propuesta V1) | Arreglar el origen hace más fácil todo lo demás. Y es lo que Marcela pidió. |
-| WhatsApp Flows | Portal web · Google Forms | Cero fricción, 12× más respuesta, y devuelve dato estructurado. Un portal exige cuenta y capacitación. |
-| Propuesta pre-llenada | Formulario en blanco | Mismo mecanismo, percepción opuesta: *"me lo preparan"* en vez de *"lo hago yo"*. Y baja el esfuerzo del manager de 25 min a 90 s. |
+| Captura antes que diseño | Diseño primero (propuesta V1) | Arreglar el origen hace más fácil todo lo demás. |
+| WhatsApp Flows, tras un adaptador de canal | Portal · Google Forms · SMS · email enriquecido | Cero fricción, 12× más respuesta, dato estructurado. El adaptador permite cambiar de canal sin tocar la arquitectura. Ver §3.3. |
+| **Jerarquía de esfuerzo decreciente** | **Un formulario que el manager llena** *(lo que Marcela sugirió)* | **Un formulario traslada la transcripción, no la elimina, y 16 productos en móvil siguen siendo 10 minutos.** El objetivo es que el manager decida, no que capture. Ver §3.0–3.1. |
+| Proponer decisiones (planes A/B/C) | Pedir datos | El manager aporta criterio sobre qué ofertar, no sobre cómo teclear. Respeta *"ellos deciden sus ofertas"* y sube el valor del servicio. |
+| **Mejorar el diseño, no replicarlo** | **Reproducir la plantilla de Canva al detalle** *(lo que sugirió Marcela y ofrecían ambos proveedores)* | El diseño actual se heredó, no se validó. Optimizar por parecido congela una decisión que nadie comprobó. Ver §5.1. |
+| **Resolver la desintermediación con atribución** | **Ocultarle al manager que hay una herramienta** *(la táctica que propuso Marcela)* | Un secreto no es un foso: no escala con la calidad y compite en el eje que se está volviendo commodity. Ver Parte II. |
 | Motor de composición propio | Canva Design Editing API | La restricción se levantó. El motor propio quita dependencias, límites de plan y una API en beta. |
 | Salida a Canva en la transición | Corte seco | El equipo sabe Canva; la confianza se construye gradual. |
 | Satori + resvg | Chrome headless | 50–200 ms sin navegador. 80 renders semanales = 12 segundos de cómputo. |

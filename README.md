@@ -45,14 +45,16 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | Propuesta B (Hexio) | *sin cotizar* | *sin cotizar* | — |
 | **Flymar (operación)** | *desarrollo aparte* | **USD 18–64** | **USD 650–2,300** |
 
-## Lo que cambió en la segunda reunión
+## Lo que reveló la segunda reunión
 
-Cuatro giros que reescribieron la propuesta:
+Cuatro señales. **Dos levantan restricciones reales; las otras dos son contexto y una preocupación de negocio.** Ninguna dicta el diseño — el cliente aporta el problema, nosotros la solución.
 
 1. **Canva dejó de ser un requisito.** *"Si la solución es más sencilla en otro lado y se parece el diseño… ese diseño yo se lo puedo proponer a mi cliente."* Se desbloquea el motor de composición propio.
-2. **Marcela pidió el formulario móvil** con sus propias palabras: *"que lo puedan hacer desde el celular, como cuando llenas una encuesta… y en el celular está primero carnicería"*.
-3. **Apareció el miedo a la desintermediación:** *"yo necesito que ellos sientan que me necesitan"*. Es un requisito de producto, y la respuesta correcta no es esconder la herramienta sino cambiar lo que se vende.
+2. **Se abre la puerta a intervenir en el origen.** Marcela sugirió *"una encuesta en el celular"*. Lo valioso no es la forma que imaginó, sino que dejó de defender el email como canal único.
+3. **Apareció el miedo a la desintermediación:** *"yo necesito que ellos sientan que me necesitan"*. Preocupación legítima; la táctica que propone —ocultar la herramienta— no lo es.
 4. **El crecimiento ya ocurrió:** *"acaban de abrir otras 2 tiendas… no voy a poner a todo mi equipo a hacer esto, no es negocio."*
+
+Donde la propuesta se aparta de lo que ella sugirió, lo dice explícitamente y explica por qué: **el formulario no es el objetivo sino el peldaño de arranque**, el diseño **se mejora en vez de replicarse**, y la desintermediación **se resuelve con atribución, no con secretismo**.
 
 ## La idea central de la propuesta vigente
 
