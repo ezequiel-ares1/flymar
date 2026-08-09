@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editores
+.vscode/
+.idea/
+
+# Entornos y dependencias
+.env
+.env.local
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/

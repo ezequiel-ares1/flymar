@@ -1,0 +1,468 @@
+00:00:01 Speaker 1
+Lo que quiero creo que es más fácil si yo te comparto pantalla.
+00:00:11 Speaker 2
+Claro y nos dices que es igual que lo quieres hacer.
+00:00:16 Speaker 1
+Sí, lo que necesito es automatizar.
+00:00:21 Speaker 1
+A ver.
+00:00:32 Speaker 1
+Lo que quiero es automatizar estas ofertas de un supermercado. Por ejemplo, te voy a poner aquí la plantilla que yo tengo.
+00:00:43 Speaker 1
+Por ejemplo, esta es mi plantilla en Canva, no este y cada martes y jueves me mandan diferentes ofertas que me las mandan así como en un Excel y ves aquí todas las pestañas como las fechas.
+00:01:04 Speaker 1
+Algunos me las mandan en Excel, otros me las mandan como un PDF, otras simplemente como una foto. Entonces ese es el detalle que lo tengo como en 3 diferentes tipos de archivo, pero lo que yo necesito hacer, por ejemplo, aquí es los clientes envían las ofertas en Excel, Google, PDF, imágenes y las organizamos por categoría de departamentos del supermercado. Pongo los nombres en inglés y en español, precios y las imágenes.
+00:01:34 Speaker 1
+Todo esto lo coloco manualmente. Entonces es como esa es mi plantilla. Lo que yo le cambio cada día es la fecha que está aquí, este la foto, que la foto la tengo por medio de carpetas acá.
+00:01:52 Speaker 1
+Así. Entonces yo aquí tengo que buscar y si no me lo encuentro, a veces el manager me envía la foto y ya la subo acá o a veces la busco por Google. Y lo que tengo que ir cambiando, obviamente ese es el nombre en inglés, en español, la cantidad, el precio, organizado como primero carnicería, fruta y verdura, abarrotes y ya al final es como postres. Normalmente esto se queda así, son diferentes tiendas, depende del día, pueden ser 5 o 10 tiendas.
+00:02:26 Speaker 1
+Este. Pero casi toda la plantilla es igual. En algunas nomás cambia como el color de atrás y algunos colores de acá. En otras sí cambia ya un poco más la plantilla. Y ya lo que necesitaría yo es cuando hay un holiday y con este no tengo.
+00:02:52 Speaker 1
+Pero le cambio este elemento de aquí o le pongo una foto de fondo. Deja, busco si acá tengo para mostrarte.
+00:03:06 Speaker 2
+Tú usas Canva Premium?
+00:03:08 Speaker 3
+Sí.
+00:03:16 Speaker 3
+Seguramente esta sí tiene.
+00:03:25 Speaker 1
+Ve, como lo que a veces salteado es como poner esta foto ahí, este.
+00:03:34 Speaker 1
+En eso es, yo creo que borraron la foto. Pero normalmente lo que se le cambia es eso de aquí abajo. Porque Holiday o este elemento de acá. Si te fijas, por ejemplo, esta es otra tienda. Entonces, mi template prácticamente es el mismo siempre.
+00:03:53 Speaker 1
+Entonces lo que busco es automatizar cuando me llegue el correo este.
+00:04:00 Speaker 1
+Puedes vaciar toda la información aquí dentro de Canva.
+00:04:05 Speaker 1
+Lo que me habían propuesto era como hacer un dashboard y ahí automáticamente ese programa me iba a mandar primero al manager un correo diciendo: "Oye, mándame las ofertas", bla. Se iba a vaciar, ya iba a tener ahí mi template de este y las imágenes precargadas. Para que nomás quisiera match de que, ok, si ellos me están pidiendo adobada. Entonces se pusiera aquí y se ordenara. Este se ordena por categorías y todo, y ya yo puedo alterar, porque a veces me dicen lo que necesito yo es que también lo pueda cambiar, porque a veces, por ejemplo, me dicen no, yo quería el melón acá en vez del cilantro, entonces lo tengo que cambiar.
+00:04:57 Speaker 2
+Quieres un prácticamente. Que haga todo eso lo que me estás diciendo ahorita o no entiendo.
+00:05:02 Speaker 1
+Sí, yo lo que quiero es que el programa primero mira acá lo tengo donde tengo el aquí que reciba la información de diferentes ofertas de diferentes formatos, organice automáticamente los productos por categoría y relación a los productos con la biblioteca de imágenes existente. Genera automáticamente el flyer.
+00:05:30 Speaker 2
+A ver esto es este es el bájalo porfa.
+00:05:35 Speaker 2
+Cómo? Ya esto es lo que esta es la propuesta que te hizo llegar el man de la empresa.
+00:05:42 Speaker 1
+Ese yo se la envié. La propuesta que él me dio.
+00:05:46 Speaker 2
+Ya a ver quiero leerlo ahora sí. Quiero leerlo. Lo que le envié. Sí.
+00:05:54 Speaker 2
+El PDF ya dice lo que es automatización de flyers de ofertas. Objetivo, automatizar el proceso de creación de flyers semanales de ofertas para supermercados. Proceso actual, los clientes envían ofertas en Excel, Google, Sheets, PDFs o imágenes por correo, cierto, por un correo de Gmail, entiendo.
+00:06:21 Speaker 1
+Sí, por mi correo electrónico.
+00:06:25 Speaker 2
+Luego tú organizas manualmente los productos por categorías: meat, produce, grocery, bakery, etcétera. Luego se agregan nombres en inglés y español, precios e imágenes se colocan manualmente en plantillas de canva. Se realizan algunos ajustes según feedback del cliente, como cambiar de posición las imágenes o cambiar imágenes.
+00:07:01 Speaker 2
+Esas imágenes ya las tienes en un banco.
+00:07:05 Speaker 1
+Yo ya tengo algunas, mayormente todas. A veces cuando el cliente necesita un producto en específico que yo no tengo la imagen, él me la manda y ya yo la pongo dentro de mis carpetas de Canva. En donde ya ahí le pongo el nombre y la coloco en la posición donde la necesito.
+00:07:25 Speaker 2
+Resultado deseado, necesito una solución que reciba información de ofertas desde distintos formatos, organice automáticamente los productos por categoría, relacione productos con una biblioteca de imágenes existentes, genere automáticamente un flyer utilizando mis plantillas. Mantenga el resultado editable dentro de Canva, permita mover productos y realizar cambios manuales cuando sean necesarios.
+00:08:00 Speaker 2
+Envíe recordatorios automáticos a los clientes para solicitar sus ofertas semanales. Mi prioridad es reducir el tiempo de producción de flyers sin perder la flexibilidad de editar y reorganizar los elementos dentro de canva. Com, ya entendí el problema reciente, te entiendo
+00:08:28 Speaker 1
+Entonces está bien mi PDF.
+00:08:33 Speaker 2
+Sí, te entiendo lo que quieres. Qué más tienes un chavo?
+00:08:40 Speaker 1
+Sí, te voy a mostrar el que me enviaron, el que te digo que carísimo de París, él me propuso un flyer. Un flyer, un dashboard. Esto lo hizo.
+00:08:58 Speaker 1
+Dex. Eso también lo hizo con inteligencia. Sí. Pero deja.
+00:09:14 Speaker 1
+Es como lo que me propuso.
+00:09:24 Speaker 1
+Pero nunca me dio como el demo para yo ver.
+00:09:29 Speaker 1
+Quería que pagues. Ajá, pero es como, él me lo mostró que sí servía, pero con 2 productos. O sea.
+00:09:42 Speaker 3
+Y ve.
+00:09:49 Speaker 1
+Quería siguiéramos como en esto, pero el precio se nos hizo muy elevado. Entonces, deja ver si me envió algo más.
+00:09:59 Speaker 2
+Cuánto se te hizo caro, 500 USD o 5000 USD?
+00:10:03 Speaker 1
+No, me pedía 5000 y luego 500 al mes, pero realmente.
+00:10:09 Speaker 2
+500 al mes luego para mantenimiento, algo así.
+00:10:14 Speaker 1
+Sí, pero realmente no necesito tantos cambios. ¿Me entiendes? Una vez que tenga armado esto, prácticamente mis ofertas es lo mismo, el sistema, lo que yo hago siempre es lo mismo, lo mismo. Nomás cambian los productos. Puede cambiar un poco como, como te digo, el color así, pero es raro. Lo que cambiaría es la imagen de abajo, que yo la usaría depende si hay 'holiday' o no hay 'holiday'.
+00:10:51 Speaker 1
+Pero ese otro muchacho me dijo, pero es que eso creo que fue hablado nomás
+00:10:58 Speaker 1
+Que con Claude lo podía hacer. Pero él quería que se fuera. Que yo lo fuera haciendo prácticamente y así se entrenara la inteligencia artificial. No me daba como la solución de que yo ya esté hecho. Era como tú, empieza a armar. Te quería enseñar. No, me lo quería vender, pero que mientras yo lo hiciera
+00:11:27 Speaker 1
+Programa se iba armando ¿me entiendes?
+00:11:41 Speaker 2
+Esa aplicación te hizo?
+00:11:44 Speaker 1
+El como para su propuesta creo.
+00:11:46 Speaker 2
+Ya eso es un
+00:11:51 Speaker 1
+Sí, como uma arquitectura este me.
+00:11:53 Speaker 2
+Parecía interesante por Zoom por favor.
+00:11:57 Speaker 1
+Este lo iba a hacer con Claude y me parece interesante pues ya lo, Le dije, oh, sí, hay que seguir en esto para ver qué onda. Ella nunca me contestó.
+00:12:08 Speaker 1
+¿Cómo te lo paso?
+00:12:11 Speaker 1
+Por WhatsApp. Por WhatsApp?
+00:12:16 Speaker 3
+Muy Bien, sí
+00:12:29 Speaker 1
+Prácticamente aquí te explica todo lo que necesito hacer y que ya lo iba a hacer con Claude.
+00:12:37 Speaker 2
+Entonces te iba a hacer una aplicación.
+00:12:41 Speaker 1
+Yo sí, yo creo que como un agente.
+00:12:48 Speaker 1
+Él está enfocado como.
+00:12:50 Speaker 2
+En y a mí me para qué me estás consultando, para orientarte de cómo hacerlo o me estás consultando para que yo me te lo haga.
+00:12:59 Speaker 1
+No, tú me dijiste que me podías enseñar.
+00:13:02 Speaker 2
+Claro, como no te pregunto, ahí estás consultando para que te lo hagan. No vaya a ser que a mí también te preguntaban para hacértelo.
+00:13:12 Speaker 1
+No, porque cuando te dije me dijiste yo te enseño.
+00:13:18 Speaker 2
+Este ya, pero cuando mencionaste que querías el pata te querías enseñar, no, porque no te gustó.
+00:13:28 Speaker 1
+No, es que no me quería enseñar. Él era como él quería enseñar a su programa mediante yo lo hacía. Creo que ese no fue el que me dijo eso. Creo que fue otra persona que cuando le dije, haz de cuenta que cuando yo lo contacté le dije, hay que hacer una reunión y él fue como, oh, por mensaje, dime qué necesitas. Y le.
+00:13:48 Speaker 2
+Dije tu PDF también pásame de lo que quieres y el otro también te mandó la propuesta.
+00:13:58 Speaker 1
+Y ¿quieres el otro PDF que él me envió?
+00:14:00 Speaker 2
+Este, ese también.
+00:14:04 Speaker 2
+Porfa.
+00:14:06 Speaker 1
+Qué más me dijo? Deja te envío el PDF que yo les envié.
+00:14:12 Speaker 1
+Necesitas todos los PDFs que les envié a ellos.
+00:14:16 Speaker 2
+Sí, toda la información pásame para que vamos a mandarle a trabajar con un agente toda la información que le enviaste también a ellos y que ellos se te envía con sus posibles ofertas.
+00:14:28 Speaker 1
+Te puedo enviar como todo esto que le envía él. Sí.
+00:14:39 Speaker 1
+Y te.
+00:14:40 Speaker 3
+Lo envío directo de aquí también.
+00:14:43 Speaker 2
+A cuál el papi chulo Ezequiel.
+00:14:49 Speaker 1
+Cállate, cuál.
+00:14:53 Speaker 2
+Es este.
+00:14:58 Speaker 1
+E Arévalo.
+00:15:00 Speaker 2
+Arroba HNC punto PE HNC.
+00:15:07 Speaker 1
+Punto PE, porque todos tus estos.
+00:15:16 Speaker 1
+Te voy a dejar así, todas tus páginas y todo es con punto PE.
+00:15:26 Speaker 1
+Aquí se ve con esto
+00:15:31 Speaker 2
+Tú lo que quieres es que al final te cree un flyer. Casi listo. Y ya luego con ese flyer, ¿qué haces? Que me haga esto, yo quiero que me haga esto. Hasta ahí nomás quieres, este es el alcance. Y luego tú.
+00:15:46 Speaker 1
+Que me haga esto para que yo revise. Que esté bien. Que idealmente ya no tuviera que revisarlo, simplemente esté bien. Y a mí me gustaría, obviamente, que lo enviara directo al manager.
+00:16:02 Speaker 1
+Pero a lo mejor es yo reviso primero que sí esté bien.
+00:16:09 Speaker 1
+Porque yo quiero que las imágenes se vean así, por ejemplo. De este tamaño, este encuadre.
+00:16:17 Speaker 1
+Esta debería ir más grande. Entonces sería revisarla y enviarla al manager.
+00:16:25 Speaker 2
+Al manager ti riferisci al cliente, al contatto?
+00:16:29 Speaker 1
+Sí, a mi cliente. Es decir, cada tienda es diferente
+00:16:32 Speaker 2
+Es diferente. Para que ya puedas hacer con eso, imprimirla o qué?
+00:16:39 Speaker 1
+No, todo lo publico en Facebook, pero haz de cuenta que yo se lo envío a ellos y ellos me dicen, no, cámbiame este precio o este a lo mejor se escribió mal esta palabra, tiene faltas de ortografía o esta no es la imagen que yo quiero o así. Entonces mi idea es que obviamente con la inteligencia artificial. El feedback de palabras es con faltas de ortografía y eso se reduzca. Me explico
+00:17:09 Speaker 2
+Ya la única conversación que tienes con ellos es por email, no es por ningún WhatsApp, nada, todo es por email.
+00:17:18 Speaker 1
+Tengo ahorita intentando que todo sea por email porque así hago todo mi equipo, yo los copio en los correos. Mi equipo tenga la misma información porque antes lo trabajaba. A mí me llegaba un texto en una aplicación, no WhatsApp, en otra aplicación, que sea como texto de acá de Estados Unidos, este y ya yo les pasaba la información a ellas, pero para hacerlo más homogéneo, que todas tengan la misma información, es más fácil por correo electrónico.
+00:17:50 Speaker 1
+Me explico, porque así yo me doy cuenta cuando ellas lo mandan. Antes yo las envío todas. Ahora quiero que ellas las envíen cuando las terminen, entonces cuando ellos las manden, a mí me copian y yo sé cuando, en el tiempo que las están enviando y el tiempo que el manager responde y así.
+00:18:11 Speaker 1
+Entonces lo ideal sería que si me haces de flyer, pero mi oferta tiene que, haz de cuenta que nosotros la terminamos, la revisamos, la descargamos y recortamos la imagen. El borde, este es el final.
+00:18:27 Speaker 1
+Y de aquí ya se la envío yo al cliente y el cliente me responde, por ejemplo, así me llega el correo así, no con copia a mis colaboradoras.
+00:18:42 Speaker 1
+Luego es como o K, les dice que ya las recibimos para que el cliente sepa de que ya recibimos que sí me llegó su correo. Luego les enviamos nosotros, así como hola, aquí están las ofertas. Ves cómo está recortada?
+00:18:59 Speaker 1
+Y luego ahí seguramente se brincaron un correo y luego aquí ya me responden y ya me dicen como okay ya están bien, okay. Y ya yo las programo en Facebook.
+00:19:21 Speaker 2
+Para que se, ya tienes ahí un mercado segmentado, todo identificado a la empresa, todo.
+00:19:28 Speaker 1
+Sí, lo que yo hago, man, eso también estaría padre si me hace el ad. Porque esto nomás es como lo publico en Facebook y aparte yo hago acá el ad. Dependiendo la tienda. Esto ya lo tengo todo, por ejemplo, vamos acá.
+00:19:46 Speaker 1
+Acá sí ya tengo todo segmentado para cada página y todo. Pero lo tengo que hacer, y ahorita el problema que tengo con Facebook es que Facebook ya no me deja programar también el anuncio. Nomás puedo programar como la publicación, por ejemplo, si ahorita la quiero publicar a las 8:00 lo puedo programar y automáticamente se publica a las 8:00, pero una vez que sale el post yo tengo que hacer el anuncio, pero si ya lo tengo todo programado, ya nomás lo que hago.
+00:20:19 Speaker 2
+Quién postea? Tú también posteas o me dijiste post, no?
+00:20:24 Speaker 2
+Quién publicó? Tú posteas en la página del cliente, ya tienes acceso.
+00:20:33 Speaker 1
+Sí, yo tengo público todo.
+00:20:36 Speaker 2
+Tienes un business portfolio y dentro de portfolio los clientes te han compartido, no te han dado acceso para que puedas publicar allí y hacer publicidad desde su propia página.
+00:20:49 Speaker 1
+Sí, yo publico cada oferta en cada página de acuerdo a la que corresponde.
+00:21:01 Speaker 2
+Ya solamente publicas en meta.
+00:21:04 Speaker 1
+Sí, esta sí, solo es en meta.
+00:21:07 Speaker 2
+Google, Instagram, TikTok, gracias.
+00:21:13 Speaker 1
+En estas páginas no, para estas ofertas no, solamente es en meta.
+00:21:20 Speaker 1
+Ya. Pero eso, si ese mismo agente logra que me haga todo mi anuncio de acá, el ads también estaría súper bien porque eso me ahorra un paso a mí, porque se publican y como ya no me deja programar el anuncio, entonces yo hasta el día siguiente tengo que venir aquí y hacer el anuncio.
+00:21:46 Speaker 2
+Y por qué Meta no te deja que eso ha lo ha cambiado? Qué pasó?
+00:21:49 Speaker 1
+Lo cambió. Sí, antes sí podías programar también el anuncio y ahora ya no, ahora ya tiene que estar publicado, tiene que ser la publicación para poderla hacer anuncio. Entonces eso es lo que a mí me ha afectado, es que por ejemplo estas ofertas yo las publico hasta las 9:00 de la noche, entonces hasta el día siguiente es cuando empieza a hacer el anuncio y lo que pasa es que todo lo que tarda Meta en recibir el anuncio y aprobarlo, a mí me quita tiempo, porque realmente esas ofertas, por ejemplo, si duran dos días y dura medio día, Meta en decirme si está aprobado o no está aprobado, pues ya perdí medio día.
+00:22:30 Speaker 1
+Entonces estaría bien que se hiciera automáticamente en la noche, así como ya.
+00:22:38 Speaker 2
+Ahora todo anuncio que haces en Meta es por medio de post o eso? O creas un anuncio desde allí, una campaña, un anuncio.
+00:22:48 Speaker 1
+Casi siempre, como ya tengo todas mis campañas hechas, ya no duplico este ad set y ya cambio el post o el video o lo que sea que tengo que anunciar, pero todo es por medio de meta.
+00:23:05 Speaker 2
+No es que posteas primero y luego publicas, posteas luego no. Sino que partes desde una post me refiero a que vas en la página web primero posteas un avión.
+00:23:19 Speaker 1
+Publico desde aquí Metal Business Suite. Sí, aquí por ejemplo. Ya. Crear post. Lo publico y una vez que esté publicado me voy acá y aquí me ven toda la campaña.
+00:23:35 Speaker 2
+Ya.
+00:23:36 Speaker 1
+Sí. Ads manager. Veo mi campaña, entonces le meto a mi campaña y le meto el adset y ya de aquí, por ejemplo, la duplico. Vamos a decir esta, la duplico, que no se mande mensaje por Messenger, duplico toda, haz de cuenta que el adset porque mi campaña ya está predeterminada. Aquí ya nomás cambio la fecha del día de la publicación, me fijo que sea como el budget correcto, cambio.
+00:24:08 Speaker 1
+Las fechas de acuerdo a lo que estoy publicando. En este caso si son ofertas pues están los días correctos. Me voy acá. Aquí también cambio la fecha.
+00:24:22 Speaker 2
+Cuando me dices me voy acá dimensiona dónde te vas a qué botón. Para grabación.
+00:24:28 Speaker 1
+Te vas a cambiar.
+00:24:33 Speaker 1
+No, lo hago. Okay, te lo digo. Cómo hago mi.
+00:24:39 Speaker 1
+Entonces el ad, me meto yo a ads manager y me voy a campañas. De campañas elijo la campaña que corresponde a la publicación que ya está hecha en Facebook. Ok.
+00:24:58 Speaker 1
+Entonces elijo una campaña que sería el adset, de ahí lo duplico. Quito el botón que dice enviar mensaje por Messenger, le doy en continuar, le doy en duplicar porque ya existe una campaña, la campaña original. Me voy al ad set name, cambio la fecha.
+00:25:26 Speaker 1
+Este verifico que el budget esté en lifetime budget y esté el dinero correcto y luego me voy a schedule, start date. Y ahí ya pongo start date y end date, las fechas correctas que necesito. Todo lo demás ya está segmentado.
+00:25:49 Speaker 1
+Y luego me voy a.
+00:25:54 Speaker 1
+Al ad name, donde ya está mi página correcta. La identidad de página ya está seleccionada, porque todo esto te digo que toda mi campaña está predeterminada. Y me pongo en ad creative en change post y elijo el post que quiero anunciar o que quiero meterle dinero, le doy continuar y ya publish.
+00:26:24 Speaker 2
+¿Manejas algún tipo de pixeles para ver por tema de conversiones? No, solamente te encargas de bombardear la publicidad y ya no haces mides trazabilidad.
+00:26:42 Speaker 1
+Porque aquí mismo me está dando. Aquí mismo el Ads Manager me dice como si funcionó o no funcionó, cuánto se gastó, cuánto me costó cada interacción.
+00:26:55 Speaker 2
+Pero no sabes realmente cuántos compraron, ¿no?
+00:27:00 Speaker 1
+No, porque como eso, no se compra online, se compra solamente en la tienda.
+00:27:04 Speaker 2
+Ah, ok. Okay.
+00:27:07 Speaker 1
+Entonces, eso no lo sé, pero sí me gustaría que, si eso se puede analizar, también me dé mi gráfica y que me diga como en el mes si le fue bien o no, porque lo que he visto que también mis anuncios, por ejemplo, lo que te digo que si lo hago en la mañana y no. Y pongo mi anuncio en la mañana y tiene una duración de dos días, se ve afectado.
+00:27:39 Speaker 1
+Por ejemplo, cada interacción me cuesta más a que si, por ejemplo, yo me meto a las 9:00 de la noche, que ya está publicada mi publicación en Facebook, y hago ahí el ad y dejo que toda la noche corra para que Facebook me lo apruebe.
+00:27:54 Speaker 1
+Cuando hago eso, mi resultado le va mejor, me cuesta menos la interacción. Me explico?
+00:28:03 Speaker 1
+Entonces he visto alteraciones en eso y me gustaría reducir que cada vez me cueste menos cada interacción, porque realmente mi campaña ya está segmentada y todo. Mi público siempre es el mismo. Lo que falle es el tiempo que le doy a Facebook para que lo envíe y lo distribuya.
+00:28:25 Speaker 1
+Entonces si esa misma gente me da posibilidad de irme dando estadísticas así yo se lo puedo enviar también a mi cliente.
+00:28:39 Speaker 2
+Ya.
+00:28:41 Speaker 2
+Listo. ¿Algo más que consideres que se deba de registrar en la conversación?
+00:28:52 Speaker 1
+Yo creo que no. Ahorita es lo que se me ocurre tal vez. Conforme se vaya haciendo la creación, me van a surgir como, le podemos poner este.
+00:29:06 Speaker 2
+Eso siempre pasa, al final el cliente pide una cosa y termina en otra cosa.
+00:29:13 Speaker 1
+Porque también lo que me gustaría, pero no sé en qué se pueda crear. Por ejemplo, como yo para tener un control de en qué voy en ese día, porque por ejemplo, yo a mi colaboradoras tengo un chat con ellas. Puedes ver mi pantalla?
+00:29:32 Speaker 2
+Sí, tu chat es ¿con qué? En dónde? En Slack.
+00:29:37 Speaker 1
+Tengo un canal en Slack en donde tengo mis colaboradores y voy poniendo como por ejemplo ofertas de fin de semana. No lo ves?
+00:29:47 Speaker 2
+No, Slack no veo, creo que me compro lo del navegador.
+00:29:52 Speaker 1
+Déjame te doy para que veas todo. Ya ves toda mi pantalla. Okay, yo meto a Slack y meto al canal que tengo con ellas. Y cada día, que en este caso son martes y jueves las ofertas, les mando, por ejemplo, como: "Hola, ya empezamos las ofertas". Y les mando, si son. Dependiendo del día, si es el martes, es como ofertas de 2 días.
+00:30:25 Speaker 1
+Y como puedes ver aquí, este.
+00:30:30 Speaker 1
+Les voy asignando como ofertas de dos días y el nombre de la tienda y ya pongo ahí "están aprobadas" o en caso de que vayamos iniciando, hago tag a la colaboradora que necesito que lo haga. Porque ahí es como yo sé que ella está trabajando en algo que no es tanta prioridad ahorita, entonces le digo "Oye, tú me vas a ayudar con esta tienda, oye, tú me vas a ayudar con esta tienda" y luego de ahí, Cada quien, si ya la terminó, me va poniendo como: "Okay, esta tienda ya la enviamos."
+00:31:00 Speaker 1
+En esta otra se está encargando fulanita. Voy como. Tengo el seguimiento porque al final del día yo necesito ver así como: "Okay, todas están aprobadas y esta última estamos esperando el feedback del cliente".
+00:31:15 Speaker 1
+Entonces, estoy pensando, pero no sé en dónde lo podríamos hacer para tener yo ese rastreo de que esta ya se las envié al cliente y me pidió un feedback. Y ya se lo enviamos otra vez el feedback. Y luego ya me contestó, ya están aprobadas. Me explico? Ya. No sé si eso sea posible, pero estaría de lujo. Porque así ya también yo podría nomás ver el chat y saber en qué vamos con ese cliente.
+00:31:52 Speaker 2
+Ajá.
+00:31:55 Speaker 2
+¿Dónde tienes un Excel en cómo gestionas tus publicaciones, de cómo sabes que ya está en Facebook, que está en espera o que está en camino en revisión, una publicidad? ¿No tienes un listado de eso en Excel?
+00:32:11 Speaker 1
+No, porque todo esto haz de cuenta que en Slack me manejo con estas chicas, ellas me ponen esto
+00:32:18 Speaker 2
+2467 empresas, 7 clientes.
+00:32:25 Speaker 1
+¿Tienes más? No, solamente por ejemplo, estas de fin de semana son nomás estas 7. A veces me pueden enviar otra, a veces pueden ser 8.
+00:32:36 Speaker 2
+Envían por todo tu por Gmail, no? No por correo, otra gente que quiere ingresar ahí te envía un correo o cómo?
+00:32:45 Speaker 1
+Sí, por correo, porque haz de cuenta que puede ser a veces como ofertas de fin de semana que estas las hacemos los jueves. Y vamos a decir que la sucursal de Metropolitan tiene 2 tipos de ofertas. Entonces me envían por correo de que okay, hazme estas ofertas en un template y hazme estas otras en otro template. Me explico?
+00:33:07 Speaker 1
+Pero en sí lo más común es que sean estas tiendas, 234, 5, 6, 7 tiendas. Y cuando son 2 días son menos. Me parece que son como 5 diferentes templates. De cinco sucursales. Entonces ya lo que pasa es que cuando me mandan mis chicas, mis colaboradoras, me mandan así como: "OK, en esto quedamos las ofertas, esta sucursal no me envió el feedback a tiempo". Entonces eso se hace hasta el día siguiente.
+00:33:39 Speaker 1
+Pero entonces yo le digo a esta chica: "OK, si ya están todas aprobadas, prográmalas en Facebook para que salgan en la noche". Y ella se encarga de programarlas. Y ya yo tengo, por ejemplo, tengo a Asana y tengo los Asana, este y ahí cuando una oferta ya está publicada, marcan ese task como terminado, como aquí, por ejemplo, si esta ya se sucursal ya se publicó, lo marcan como terminado.
+00:34:21 Speaker 1
+Entonces aquí me aparecen los que no están terminados, me aparece el Asana en Asana a mí y como yo soy la única que se encarga de hacer los ads, el anuncio, entonces a mí me aparecen aquí los Asana también y ya cuando termino esta sucursal le doy terminado y así es como llevo el seguimiento. Y quién?
+00:34:42 Speaker 2
+Ajá, eso a eso me refería. Y quién hace esos tags? Quién genera?
+00:34:49 Speaker 1
+Estos los tengo ya hechos, los genero para asignárselos a mis colaboradores, pero ellas también pueden generarlo. Mi equipo también puede en sus proyectos, en Asana, generan el Asana y me lo pueden asignar a mí o a cualquiera que ellos necesiten
+00:35:19 Speaker 1
+Como Aquí. Todos podemos hacer task.
+00:35:28 Speaker 2
+Y ahí dan seguimiento. Qué da seguimiento ahí? Desde qué momento?
+00:35:35 Speaker 1
+Esto solamente es para, en este tipo de las ofertas, solamente es para saber cuándo está publicado y cuándo no está publicado.
+00:35:42 Speaker 2
+No tienes, por ejemplo, ahí estado validando en espera de validación del cliente, del figura del cliente.
+00:35:49 Speaker 1
+No, ese seguimiento lo hacemos por Slack.
+00:35:54 Speaker 1
+Para que sea más rápido con el mismo mensaje. Vamos haciendo la lista y va a ser como esta sucursal, ya me las aprobaron, esta sucursal hay feedback, esta sucursal este no me las han enviado, como aquí ve esa sucursal trabajando en el feedback, está enviadas.
+00:36:12 Speaker 2
+Y eso tienes que copiar y pegar nuevamente para volver a seguir actualizando.
+00:36:19 Speaker 1
+Como si yo veo que en la sucursal está, por ejemplo, Blue Ridge, ya el cliente me envió el email. Entonces yo aquí le digo, okay, chicas, ya lo enviaron y asigno a alguien. O a veces ellas mismas es como ya me las enviaron, yo las voy a hacer. Me explico?
+00:36:37 Speaker 2
+Y luego se van a Asana y crean sus tasks y le ponen publicado.
+00:36:41 Speaker 1
+No, en Asana ya está hecho el task.
+00:36:45 Speaker 1
+En Asana ya siempre se les genera automáticamente cada semana se genera el mismo task y ese ya es hasta el final del día. La persona que se encarga de publicarlo entonces dice okay, este ya lo publiqué, le doy terminado.
+00:37:00 Speaker 1
+Pero Asana es hasta el final del día, es nomás como un recordatorio de "hey, tienes que publicar esto".
+00:37:08 Speaker 1
+Como sus tareas del día, todo el seguimiento de las ofertas durante el día es por medio de Slack.
+00:37:15 Speaker 2
+¿Tienes algún informe de las finanzas? ¿Cuánto has invertido hoy? ¿Cuánto has gastado el mes? Eso todo el mes en meta nada más.
+00:37:26 Speaker 1
+Sí, en meta te da los informes. Eso es lo que te digo, que me gustaría como estadísticamente, si me lo puedes dar automáticamente, como decirme en este mes, en estas ofertas gaste tanto y tu resultado por. Porque todo lo hacemos ahorita engagement. Tu resultado te está costando menos este mes o entiendes?
+00:37:53 Speaker 1
+Eso me ayudaría porque sería como un reporte sencillo. Yo ahorita no me encargo de hacer reportes, pero sí me gustaría meterme más en eso.
+00:38:03 Speaker 1
+Sí, pero para ello me gustaría absorber esa parte, porque yo me estoy encargando de hacer los anuncios, los ads. Entonces si me genera el reporte para que se lo mande directo a mi cliente.
+00:38:20 Speaker 2
+Y para qué eso le mandas a.
+00:38:22 Speaker 1
+Tu cliente? No siempre, nomás es como en caso de que me diga, no está funcionando yo tener una prueba de decir. Así vamos. Me explico?
+00:38:34 Speaker 1
+Porque a veces ellos no entienden y nomás dicen así como, hey, mi Facebook no tiene likes. No está funcionando y métele más dinero. Y quieres meter a veces como, $200 más. No, es que realmente no. Aunque le meta. Si le meto $1,000 Facebook se va a gastar $1,000 pero esa no es la solución.
+00:38:57 Speaker 1
+Me explico? Yo no quiero como nomás gastar dinero a lo menso. Es como. Tienes que hacer la estrategia, no nomás es meterle dinero.
+00:39:09 Speaker 4
+Ya.
+00:39:11 Speaker 1
+Eso nomás sería como algo extra, como de tener un, tener mis reportes y tener resguardado de que, porque hay clientes saben que dicen de que no estás metiéndole dinero, es como sí le estamos metiendo. O piensan a veces, si le metes más dinero o así. Realmente esos problemas es como nomás un, ¿cómo se puede decir? Como para interno de la empresa. No es que nos esté pasando, no es un problema todavía, más bien es como un quiero tener, yo cómo demostrar mi trabajo o así.
+00:39:48 Speaker 2
+De repente este tener todo de una sola plataforma, no donde desde que le das seguimiento el cliente. Has evaluado la oportunidad de que el cliente no te envíe un email, sino te entre a tu plataforma y ahí te diga como y ahí en tu plataforma mismo lo de seguimiento y no por email?
+00:40:13 Speaker 1
+No, pero eso siento que va a ser más difícil. Este cliente en cada sucursal hay muchos managers y a veces los cambian. Me ha costado mucho trabajo, primero que me lo envíen por email. Y que me lo envíen ordenado en un template y todo, porque antes me lo enviaban por mensaje o me lo enviaban como con una foto y a mano, muy desorganizado. Entonces ahorita estamos mejorando a que me lo envíen con un template para que se explique mejor.
+00:40:46 Speaker 1
+Me gustaría que me lo enviaran en inglés y en español, los nombres ya traducidos, pero por ese entonces la inteligencia artificial lo puede hacer.
+00:40:56 Speaker 2
+Por qué en español?
+00:40:58 Speaker 1
+Porque necesito que mis ofertas siempre vayan en inglés y en español, a excepción de unas.
+00:41:07 Speaker 1
+Todo es como.
+00:41:10 Speaker 2
+Y Dónde son esas tiendas? En México o en?
+00:41:13 Speaker 1
+No, en Estados Unidos.
+00:41:15 Speaker 2
+Son tiendas latinas. Clientes.
+00:41:19 Speaker 1
+Sí, Son. Son supermercados latinos. Venden de todo, de todos lados. Hay una que vende productos de todo el mundo.
+00:41:34 Speaker 1
+Como esta. En esta sí es obviamente en inglés todo.
+00:41:40 Speaker 1
+Pero la mayoría es inglés y español.
+00:41:44 Speaker 1
+Sí, creo que por ahorita lo que más me importa es que se automatice lo que el cliente me envía por correo. A mi plantilla de Canva, me gustaría que me lo diera así tal cual mi plantilla.
+00:42:07 Speaker 1
+Yo creo que al principio, mientras el cliente.
+00:42:10 Speaker 2
+Ingrese ahí a ver ese link generado por Canva, algo así.
+00:42:14 Speaker 1
+No, el cliente no quiero que tenga acceso a mí, a mi plataforma. Yo el cliente nomás me envía por correo de que estos son mis productos, el cliente nomás me va a enviar esto.
+00:42:30 Speaker 1
+Te digo, por ejemplo, puede ser foto o su Excel o su PDF, como aquí y yo todo esto, yo quiero que la inteligencia artificial tome este archivo y lo vacié toda la información a esta plantilla de Canva.
+00:42:51 Speaker 2
+Muéstrame tu Excel. Qué tienes Excel? Descríbeme, es Excel. Qué es lo que te envía el cliente para empezar?
+00:42:59 Speaker 1
+Esto es un PDF, algunos clientes me lo envían en PDF y tiene como 3 columnas, cuatro de hecho, y por ejemplo, esta me lo envía desorganizado porque primero me envía produce, la categoría de produce y los productos. Primero es como la cantidad que a veces es por pieza que es each y a veces aquí puedes ver libra. Y luego el producto, limones y luego el precio, luego en la otra, eso es columna.
+00:43:34 Speaker 1
+Sí, son columnas, en la otra columna es bakery y así también igual en la otra columna es meat y luego grocery en la otra columna. Entonces yo lo que quiero es que OK inteligencia artificial va a ver esto y primero lo que siempre mis ofertas van, primero es el área de carnicería y luego. En la otra fila de mi template es produce y la próxima es grocery y la última es bakery.
+00:44:03 Speaker 1
+Y entonces qué?
+00:44:05 Speaker 2
+Bien en ese orden. No.
+00:44:09 Speaker 1
+Pero así tal cual.
+00:44:10 Speaker 2
+Como en esta imagen. Ambas a tu plantilla.
+00:44:13 Speaker 1
+Sí, yo tengo que ver cuál es la carnicería, cuáles son los productos y toda esta información que ellos me envían vaciarla yo directamente a mi plantilla en Canva.
+00:44:26 Speaker 1
+Y luego de ahí busco cuál es la imagen que corresponde a cada producto. Entonces eso es lo que me toma mucho tiempo.
+00:44:37 Speaker 2
+Y esas imágenes ya tú lo tienes en tu Canva, en una carpeta me dices?
+00:44:43 Speaker 1
+Sí, yo tengo carpetas en Canva.
+00:44:50 Speaker 2
+Pudiera estar con MCP de repente para que quede registrado para nuestro agente de IO. Que vea que tan viable o factible es un MCP a nivel de Canva. Si me dices que tienes el Canva Premium.
+00:45:03 Speaker 1
+Sí, tengo Canva Premium.
+00:45:08 Speaker 1
+Como aquí tengo todas mis carpetas ordenadas por Grocery y todos los productos de Grocery que he utilizado a lo largo de todos estos años. Tengo mi carpeta de Produce, tengo mi carpeta de panadería, bakery. Y tengo mis carpetas de carnicería y ahí tengo ya como puerco, res, comida cocinada, seafood, Chicken.
+00:45:31 Speaker 2
+Y las imágenes corresponden realmente a lo que vende la tienda o es una imagen referencial?
+00:45:39 Speaker 1
+Es de referencia, algunas sí son realmente las que ellos nos envían, este pero algunas son sacadas de internet, pero ahorita eso es lo que vamos a estar haciendo toda una sesión enfocada en carnicería para tener nuestras propias imágenes.
+00:45:57 Speaker 2
+Ustedes como.
+00:45:59 Speaker 1
+Sí, como agencia, porque por ejemplo, aquí ya las tengo. Estas sí son tal cual de carnicería de la tienda. Entonces eso yo haría mi banco de todas estas fotos, porque lo que pasó es que ellos hacen aparte otras ofertas con alguien más y esa agencia utilizó una página, un pedazo de carne de internet. Y los están demandando.
+00:46:26 Speaker 1
+Porque quien subió esa foto dijo que se encontraron la foto con inteligencia artificial y dijo: "tú estás utilizando mi foto, ahora me pagas".
+00:46:37 Speaker 1
+Entonces por eso.
+00:46:38 Speaker 2
+Ustedes las han tomado.
+00:46:40 Speaker 1
+Estas sí, nosotros las tomamos.
+00:46:46 Speaker 1
+Y estamos intentando hacer todo nuestro banco de imágenes que nosotros tomamos de todo lo de carnicería.
+00:46:56 Speaker 4
+Ya no.
+00:47:00 Speaker 1
+Sé si se entendió lo que necesito porque luego nos fuimos con más.
+00:47:05 Speaker 2
+Nuestra Agente de ella ahora tu aplicación ya no va a costar 5000 USD, sino 15000 USD y 5 * 315 2000 USD mensuales no 1500 USD mensuales.
+00:47:21 Speaker 2
+Ya vamos a pasar la grabación ahí.
