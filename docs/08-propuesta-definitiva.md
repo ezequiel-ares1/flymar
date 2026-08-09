@@ -438,12 +438,12 @@ Esto **respeta exactamente lo que Marcela dijo** —*"ellos deciden sus ofertas"
 │  🥩 Chorizo en tripa                     │
 │     $ [____]  por [LB ▾]        ⚠ falta │
 │                                          │
-│  [ + Agregar otro ]                      │
-│                                          │
 │  ──────────────────────────────────────  │
-│         [ Quitar ]      [ Siguiente ]    │
+│         [ Quitar uno ]  [ Siguiente ]    │
 └──────────────────────────────────────────┘
 ```
+
+*(Cuatro campos fijos por categoría, que es exactamente lo que llevan las plantillas reales. WhatsApp Flows no admite un repetidor dinámico dentro de una pantalla — ver §3.3b.)*
 
 Cuatro pantallas —carnicería, produce, abarrotes, panadería, **en el orden del flyer**—, y una final:
 
@@ -515,6 +515,76 @@ Los datos que inclinan la decisión:
 Ese último punto es el que más pesa: **el manager de carnicería no está frente a una computadora. Está en la tienda, con el teléfono en la mano y las manos ocupadas.**
 
 > **Y una advertencia honesta:** WhatsApp es la elección correcta *hoy*, con la información disponible. Si el piloto de dos sucursales muestra que la adopción es baja o que la verificación de Meta se vuelve un problema, se cambia. **Toda la lógica vive detrás de un adaptador de canal**, de modo que sustituir WhatsApp por otra cosa afecte un módulo y no la arquitectura.
+
+## 3.3b Qué permite WhatsApp realmente, y cuánto cuesta
+
+Los mockups de arriba no sirven de nada si la plataforma no los soporta. Esto es lo verificado contra la documentación.
+
+### Componentes disponibles en WhatsApp Flows
+
+| Tipo | Componentes |
+|---|---|
+| **Entrada** | `TextInput`, `TextArea`, `DatePicker`, `Dropdown`, `RadioButtonsGroup`, `CheckboxGroup`, `OptIn` |
+| **Contenido** | `Image`, `EmbeddedLink`, `TextHeading`, `TextSubheading`, `TextBody`, `TextCaption` |
+| **Navegación** | Botones de pie de pantalla |
+
+Todos los componentes de entrada deben ir **dentro de un `Form`**. Y con la *Data API* activada, WhatsApp intercambia datos con nuestro servidor en cada transición de pantalla, lo que permite **poblar listas dinámicamente** — que es lo que hace posible la propuesta pre-llenada.
+
+**Conclusión: sí, la interfaz descrita es construible.** Campos de precio, listas de unidades, casillas de temporada, notas libres e imágenes del flyer están todos soportados.
+
+### Cuatro límites reales que condicionan el diseño
+
+1. **No existe un repetidor dinámico "+ agregar otro producto" dentro de una pantalla.** Los campos son fijos en el JSON del Flow. *No es un problema aquí*: las plantillas reales tienen 3–4 productos fijos por categoría, así que se diseñan pantallas con esa cantidad exacta. Para el caso raro de un producto extra, se usa el campo de notas o una pantalla adicional.
+2. **Hay límites de caracteres y de cantidad de opciones** en dropdowns y grupos de botones. Suficientes para unidades (`LB`, `EA`, `OZ`, `PK`…), pero hay que respetarlos.
+3. **Cada Flow pasa por revisión de Meta antes de publicarse.** Hay que contarlo en el calendario, igual que la verificación del negocio.
+4. **Cambiar el Flow implica volver a publicarlo.** Conviene estabilizar el diseño antes de extenderlo a las 10 tiendas.
+
+### El costo real — y por qué mi estimación anterior era demasiado alta
+
+Meta cambió a facturación **por mensaje** el 1 de julio de 2025. Tarifas en Estados Unidos:
+
+| Categoría | Precio Meta | + margen del proveedor | Total aprox. |
+|---|---:|---:|---:|
+| **Utility** | ~USD 0.006 | ~0.005 | **~USD 0.011** |
+| Authentication | ~0.004 | ~0.005 | ~0.009 |
+| **Ventana de servicio (24 h)** | **GRATIS** | — | **GRATIS** |
+| Marketing | — | — | **⛔ bloqueado en EE. UU.** |
+
+Además, Meta incluye **1,000 conversaciones de ventana de servicio gratuitas al mes** en todas las cuentas.
+
+**Lo decisivo es cómo funciona la ventana de servicio:** en cuanto el manager responde, se abren 24 horas en las que **todo lo demás es gratis** — el Flow, el envío del flyer, la aprobación, las correcciones. Solo se paga el mensaje que inicia la conversación.
+
+```
+  Martes 08:00  ·  «Preparamos tu propuesta»        → utility   $0.011
+  Manager toca «Ver propuesta»                       → se abre la ventana de 24 h
+  ├─ Flow con las 4 pantallas                        → GRATIS
+  ├─ «Aquí está tu flyer»                            → GRATIS
+  ├─ «Cambia el precio del chorizo»                  → GRATIS
+  └─ «Aprobado, sale a las 9 pm»                     → GRATIS
+                                          COSTO TOTAL DEL CICLO: $0.011
+```
+
+| Escala | Mensajes iniciales/mes | Costo mensual |
+|---|---:|---:|
+| 10 tiendas × 2 días | ~86 | **~USD 1** |
+| 30 tiendas × 2 días | ~258 | **~USD 3** |
+
+**Mi estimación anterior (USD 5–15 y 15–40 al mes) era entre 5 y 15 veces más alta de lo real.** Queda corregida en la Parte IX.
+
+### ⚠️ El riesgo que sí puede romper esto
+
+**Meta tiene pausado el envío de plantillas de categoría *marketing* a números de Estados Unidos desde el 1 de abril de 2025.** Sigue vigente, sin fecha de reapertura anunciada. Los mensajes que caen en esa categoría fallan con el error `63049`.
+
+Nuestro caso de uso **es utility** —una notificación operativa dentro de una relación comercial existente, equivalente a un recordatorio de cita o una confirmación de pedido— y las plantillas utility siguen permitidas. Pero **la categorización la decide Meta al aprobar la plantilla**, y puede recategorizar después.
+
+Mitigaciones, en orden:
+
+1. **Redactar la plantilla como utility inequívoca.** *"Su propuesta de ofertas semanal está lista para revisión"* es utility. Cualquier cosa que suene a promoción no lo es. Nada de emojis promocionales, exclamaciones ni lenguaje comercial en la plantilla de apertura.
+2. **Validar la categoría en la Fase 0**, antes de construir nada encima. Es una prueba de un día: se envía la plantilla a aprobación y se ve qué categoría le asigna Meta.
+3. **Ritual iniciado por el manager.** Si él escribe primero —aunque sea la palabra "ofertas"— se abre la ventana de servicio y no hay ni costo ni restricción de categoría. Traslada un poco de carga a él, pero es el plan B más limpio.
+4. **Fallback de canal.** Si la categorización falla, el adaptador permite mover el aviso a SMS o email con un enlace a una web app, conservando toda la lógica.
+
+> **Recomendación:** la prueba de categorización va en la primera semana. Es barata, rápida, y determina si el canal principal es viable. **No se construye el resto de la captura hasta tener esa respuesta.**
 
 ## 3.4 Tres carriles: nadie se queda fuera
 
@@ -727,7 +797,59 @@ Ese alcance está **congelado**: nada entra al editor si no aparece en un flyer 
 
 Números concretos: **10 tiendas × 2 días de oferta × 4 formatos = 80 renders por semana ≈ 12 segundos de cómputo.** El costo de render es esencialmente cero, y no cambia si mañana son 30 tiendas.
 
-Para retoque manual, un editor web ligero sobre las seis primitivas (Fabric.js, gratis) — o Polotno SDK (USD 899 una vez) si se prefiere comprar tiempo.
+## 5.5 El editor: no hace falta un editor de canvas
+
+Aquí hay una simplificación que conviene aprovechar, y que además elimina un gasto.
+
+Al principio planteé usar Polotno SDK (USD 899) o Fabric.js para construir un editor de arrastrar y soltar sobre un lienzo. **Al revisarlo contra lo que el equipo realmente necesita hacer, no hace falta ninguno de los dos.**
+
+Repasemos las correcciones reales que aparecen en la reunión y en el histórico de feedback:
+
+| Corrección típica | ¿Necesita un lienzo? |
+|---|---|
+| *"Cámbiame este precio"* | ❌ Es editar un campo |
+| *"Esta palabra está mal escrita"* | ❌ Es editar un campo |
+| *"Esa no es la imagen que quiero"* | ❌ Es elegir de una lista |
+| *"Quiero el melón acá en vez del cilantro"* | ❌ **Es reordenar dos elementos de una lista** |
+| *"Esta debería ir más grande"* | ⚠️ Es marcar un producto como destacado |
+| *"Ponle la foto de fondo del holiday"* | ❌ Es elegir una variante |
+
+**Ninguna requiere mover objetos por un lienzo con píxeles.** Todas son operaciones sobre *datos*, y la plantilla ya es un dato (§5.2).
+
+Lo que sí hace falta es un **editor de datos con vista previa en vivo**:
+
+```
+┌────────────────────────────┬─────────────────────────┐
+│  CARNICERÍA                │                         │
+│  ⠿ Pierna de pollo  $0.89  │   [ vista previa del    │
+│  ⠿ Discada puerco   $2.89  │     flyer, se actualiza │
+│  ⠿ Caldo mixto      $2.99  │     al soltar ]         │
+│  ⠿ Chorizo          $2.99  │                         │
+│    ↑ arrastrar para        │                         │
+│      reordenar             │                         │
+│                            │                         │
+│  PRODUCE                   │                         │
+│  ⠿ Naranja bolsa    $7.99  │                         │
+│  ⠿ Papaya           $0.89  │                         │
+│  ⠿ Coco seco        $2.29  │                         │
+│                            │                         │
+│  Temporada: [ Ninguna ▾ ]  │   [ Aprobar ] [ PNG ]   │
+└────────────────────────────┴─────────────────────────┘
+```
+
+Arrastrar un ítem entre listas es HTML corriente. La vista previa es el mismo render de producción. **Cero librerías de canvas, cero licencias, y bastante menos trabajo que construir un editor gráfico.**
+
+| | Editor de canvas | **Editor de datos + preview** |
+|---|---|---|
+| Costo de licencia | USD 0–899 | **USD 0** |
+| Esfuerzo de construcción | Alto | **Bajo** |
+| Cubre las correcciones reales | Sí | **Sí** |
+| Puede romper el diseño | **Sí** — alguien mueve algo y descuadra la plantilla | **No** — la plantilla siempre queda consistente |
+| Operable por un agente de IA | Difícil | **Trivial: es JSON** |
+
+La cuarta fila no es menor: **un editor de lienzo permite estropear la plantilla; uno de datos, no.** Se gana consistencia, no solo ahorro.
+
+> **Si algún día aparece una necesidad genuina de manipulación libre** —un diseño especial, una campaña fuera de formato— la salida es Canva, que ya existe y el equipo domina. **No hay que construir un segundo Canva para cubrir el 2 % de los casos.**
 
 ---
 
@@ -856,7 +978,7 @@ Deliberadamente más simple que el del [documento 06](./06-propuesta-v2-platafor
 | **Captura** | **WhatsApp Business API** (Flows) | Detrás de un adaptador de canal, para poder sustituirlo. Ver §3.3. |
 | **Extracción** | **Claude Sonnet 5** (visión + structured outputs) | Carril B. ~USD 0.05 por documento. |
 | **Render** | **Satori + resvg** | 50–200 ms, sin navegador. |
-| **Editor** | **Fabric.js** (o Polotno, USD 899) | Retoque sobre las seis primitivas. |
+| **Editor** | **Listas reordenables + vista previa** (HTML corriente) | Sin librerías de canvas ni licencias. Ver §5.5. |
 | **Almacenamiento** | **Cloudflare R2** | Egreso gratuito — es un producto que sirve imágenes. |
 | **Orquestación** | **Cron + colas** en la propia app; n8n solo para integraciones sueltas | Menos piezas móviles = menos mantenimiento. |
 | **Meta** | **Marketing API** directa | Con adaptador propio para absorber cambios. |
@@ -942,19 +1064,20 @@ Cada fase entrega valor sola. **Y el orden cambió respecto a la propuesta anter
 |---|---:|---:|
 | Aplicación y base de datos | USD 20–30 | USD 40–60 |
 | Almacenamiento e imágenes (R2) | 2–5 | 8–15 |
-| **WhatsApp Business API** | 5–15 | 15–40 |
+| **WhatsApp Business API** | **~1** | **~3** |
 | IA (extracción, carril B) | 3–6 | 8–15 |
 | Dominio, correo, monitoreo | 5 | 10 |
-| **Total** | **USD 35–60** | **USD 80–140** |
+| **Total** | **USD 31–47** | **USD 69–103** |
 
-*Nota sobre WhatsApp:* Meta cobra por conversación iniciada por el negocio. A 10 tiendas × 2 veces por semana son ~80 conversaciones al mes; a 30 tiendas, ~240. Sigue siendo marginal frente a cualquier alternativa.
+*Corrección respecto a la versión anterior de este documento:* estimé WhatsApp en USD 5–15 y 15–40 al mes. **El costo real es de aproximadamente USD 1 y USD 3**, porque solo se paga el mensaje que abre la conversación (~USD 0.011 con margen del proveedor) y todo lo que ocurre dentro de la ventana de servicio de 24 horas es gratuito. El desglose está en §3.3b.
 
-## Licencias opcionales
+## Licencias
+
+**Ninguna.** El editor se construye con listas reordenables y vista previa (§5.5), sin librerías de canvas ni SDK de pago. Se descarta Polotno (USD 899) por innecesario, no solo por presupuesto: un editor de datos es más barato **y además impide que alguien descuadre la plantilla**.
 
 | Concepto | Costo |
 |---|---|
-| Polotno SDK (si se prefiere no construir el editor) | USD 899, una vez |
-| Canva Pro | Ya lo tiene; se puede mantener durante la transición |
+| Canva Pro | Ya lo tiene; se mantiene durante la transición y como salida para casos especiales |
 
 ## Comparación a tres años
 
@@ -1005,6 +1128,7 @@ El indicador **"tiendas por persona"** es el que responde a *"no es negocio"*. E
 | R2 | **Se percibe que "el manager lo hace todo"** | Marca blanca de Fresco, lenguaje de servicio (*"preparamos tu propuesta"*), y el informe de rotación al frente de la relación. Ver Parte II. |
 | R3 | **El diseño propio no convence al cliente final** | Salida a Canva durante la transición. Y Marcela ya dijo que puede proponer un diseño nuevo. Se valida con una sucursal antes de extender. |
 | R4 | **La aprobación de WhatsApp Business tarda** | Se inicia en Fase 0. Mientras tanto, el carril B (email) funciona igual. |
+| **R4b** | **⚠️ Meta clasifica nuestra plantilla como *marketing*** — categoría **bloqueada** para números de EE. UU. desde abril de 2025, sin fecha de reapertura. Fallaría con error `63049`. | **Prueba de categorización en la semana 1**, antes de construir nada encima. Redacción estrictamente utility. Si falla: ritual iniciado por el manager (ventana de servicio, gratis y sin restricción) o fallback a SMS/email vía el adaptador de canal. Ver §3.3b. |
 | R5 | **No se consigue el dato del POS** | Las vías ①②③ de la Parte IV no dependen de la tienda. El POS mejora la precisión, no habilita la medición. |
 | R6 | **Deriva de calidad de la extracción** | Evals sobre 50 documentos reales bloqueando el despliegue. |
 | R7 | **Reclamación legal por una imagen** | Auditoría en Fase 0. Es el riesgo con mayor severidad y el más barato de mitigar. |
@@ -1028,7 +1152,7 @@ El indicador **"tiendas por persona"** es el que responde a *"no es negocio"*. E
 **Esta semana:**
 1. Confirmar el cambio de alcance: se levanta la restricción de Canva y la captura pasa a ser la Fase 1.
 2. Elegir las **2 sucursales piloto** para el formulario — idealmente una de las dos recién abiertas, que no tiene costumbres que romper.
-3. Iniciar la verificación de WhatsApp Business API (es lo que más tarda).
+3. Iniciar la verificación de WhatsApp Business API (es lo que más tarda) **y, en paralelo, enviar a aprobación la plantilla de apertura para comprobar que Meta la clasifica como *utility* y no como *marketing*.** Esa prueba cuesta un día y determina si el canal principal es viable — no se construye la captura hasta tener la respuesta.
 4. Acceso de lectura a la carpeta de Canva para inventariar el banco de imágenes.
 5. **Preguntar a dos managers cuánto tiempo les toma preparar el Excel.** Es el número que justifica todo el cambio ante el cliente final.
 
@@ -1049,6 +1173,8 @@ El indicador **"tiendas por persona"** es el que responde a *"no es negocio"*. E
 | **Jerarquía de esfuerzo decreciente** | **Un formulario que el manager llena** *(lo que Marcela sugirió)* | **Un formulario traslada la transcripción, no la elimina, y 16 productos en móvil siguen siendo 10 minutos.** El objetivo es que el manager decida, no que capture. Ver §3.0–3.1. |
 | Proponer decisiones (planes A/B/C) | Pedir datos | El manager aporta criterio sobre qué ofertar, no sobre cómo teclear. Respeta *"ellos deciden sus ofertas"* y sube el valor del servicio. |
 | **Mejorar el diseño, no replicarlo** | **Reproducir la plantilla de Canva al detalle** *(lo que sugirió Marcela y ofrecían ambos proveedores)* | El diseño actual se heredó, no se validó. Optimizar por parecido congela una decisión que nadie comprobó. Ver §5.1. |
+| **Editor de datos con vista previa** | Editor de canvas (Polotno USD 899 · Fabric.js) | Ninguna corrección real del equipo necesita mover píxeles: son campos, listas y reordenamientos. Sale gratis, se construye antes, y **no permite descuadrar la plantilla**. Ver §5.5. |
+| Canva como salida para casos especiales | Construir manipulación libre | Cubrir el 2 % de casos raros no justifica un segundo editor gráfico. Canva ya existe y el equipo lo domina. |
 | **Resolver la desintermediación con atribución** | **Ocultarle al manager que hay una herramienta** *(la táctica que propuso Marcela)* | Un secreto no es un foso: no escala con la calidad y compite en el eje que se está volviendo commodity. Ver Parte II. |
 | Motor de composición propio | Canva Design Editing API | La restricción se levantó. El motor propio quita dependencias, límites de plan y una API en beta. |
 | Salida a Canva en la transición | Corte seco | El equipo sabe Canva; la confianza se construye gradual. |
