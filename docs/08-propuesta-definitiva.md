@@ -87,7 +87,7 @@ Martes 08:00 · WhatsApp del manager
 │ Fresco Marketing                            │
 │ Su propuesta de ofertas de Metropolitan     │
 │ para el 13–14 de mayo está lista.           │
-│ 👉 ofertas.<dominio>/p/7Ka9dR  (válido 48h) │
+│ 👉 ofertas.frescomktg.com/p/7Ka9dR (48 h)   │
 └─────────────────────────────────────────────┘
                     ↓ un toque
 ┌─────────────────────────────────────────────┐
@@ -280,7 +280,7 @@ MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 | Aplicación | **Next.js + TypeScript** — un lenguaje, un proyecto: web del manager, tablero interno, API y render |
 | Base de datos | **Supabase** (Postgres + pgvector + auth + storage), con `tenant_id` y RLS desde el primer commit |
 | Despliegue | **Vercel Pro** (USD 20 — Hobby prohíbe uso comercial) · alternativa: Railway USD 5 |
-| Dominio | **Subdominio del dominio de Fresco** *(por confirmar cuál controla)* — marca blanca, verificación de WhatsApp y entregabilidad del correo |
+| Dominio | **Subdominio de `frescomktg.com`** — marca blanca, verificación de WhatsApp y entregabilidad del correo |
 | Notificación | **WhatsApp Business API**, detrás de un adaptador de canal |
 | IA | Escalonada por tarea (ver §9). **No interviene en el carril A ni en la propuesta pre-llenada**, que es SQL sobre el histórico |
 | Render | **Satori + resvg** |
@@ -450,7 +450,7 @@ El de arranque conviene hacerlo igualmente, aunque **el material pasado esté di
 3. Iniciar la verificación del negocio en WhatsApp Business (es lo que más tarda).
 4. Elegir las **2 sucursales piloto** — idealmente una de las dos recién abiertas, sin costumbres que romper.
 5. Acceso de lectura a Canva para inventariar el banco de imágenes, **y rescatar todo el material pasado que se pueda** (flyers y Excels de semanas anteriores) para adelantar la curva de la propuesta pre-llenada.
-5b. **Confirmar qué dominio controla Fresco** y si puede crear subdominios. Bloquea la verificación de WhatsApp y la configuración del correo.
+5b. **Conseguir acceso al DNS de `frescomktg.com`** para crear los subdominios y los registros SPF, DKIM y DMARC. Bloquea la verificación de WhatsApp Business y la entregabilidad del correo del carril B.
 6. **Preguntar a dos managers cuánto tiempo les toma preparar el Excel.** Es el número que justifica el cambio ante el cliente final.
 7. Diseñar la plantilla base como dato y presentarle a Marcela la versión propia frente a la de Canva.
 8. Definir con ella el guion hacia los managers: qué se les dice y qué no.

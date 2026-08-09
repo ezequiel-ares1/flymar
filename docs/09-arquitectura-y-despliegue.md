@@ -34,11 +34,9 @@ apps/web                    ← Next.js: web del manager + tablero interno + API
 ### 1.1 Dos superficies, un proyecto
 
 ```
-app.<dominio-fresco>       → tablero interno · autenticado (Supabase Auth)
-ofertas.<dominio-fresco>   → web del manager · link temporal, sin cuenta
+app.frescomktg.com       → tablero interno · autenticado (Supabase Auth)
+ofertas.frescomktg.com   → web del manager · link temporal, sin cuenta
 ```
-
-*(Qué dominio controla Fresco está **por confirmar** — ver §4.)*
 
 Mismo código, mismo despliegue, mismo modelo de datos, **separación limpia por subdominio**. El manager no puede llegar a la vista interna ni por accidente ni manipulando una URL, y la marca que ve es la de Fresco en ambos casos.
 
@@ -210,13 +208,13 @@ Con esa disciplina, mover todo a un VPS es un fin de semana, no una reescritura.
 
 Hacen falta **tres** razones para justificarlo, y las tres se cumplen:
 
-1. **Confianza y marca blanca.** El manager recibe un link por WhatsApp. `ofertas.<dominio-fresco>/p/7Ka9dR` es de Fresco; `flymar-git-main-abc.vercel.app` parece phishing. Todo el argumento de la §2 del documento 08 —que el manager perciba un servicio de la agencia— se cae con una URL de aspecto técnico.
+1. **Confianza y marca blanca.** El manager recibe un link por WhatsApp. `ofertas.frescomktg.com/p/7Ka9dR` es de Fresco; `flymar-git-main-abc.vercel.app` parece phishing. Todo el argumento de la §2 del documento 08 —que el manager perciba un servicio de la agencia— se cae con una URL de aspecto técnico.
 2. **Verificación de WhatsApp Business.** El proceso de Meta se apoya en un dominio del negocio.
 3. **Entregabilidad del correo.** El acuse del carril B necesita SPF, DKIM y DMARC sobre un dominio propio. Sin eso va a spam, y el carril B deja de funcionar en silencio.
 
-**Recomendación: un subdominio del dominio que Fresco ya tiene.** Refuerza la marca blanca y no añade un dominio que mantener. Si se prefiere separar, un dominio propio cuesta ~USD 12–15 al año.
+**Decisión: subdominios de `frescomktg.com`**, el dominio que Fresco ya usa. Refuerza la marca blanca y no añade un dominio que mantener. **No hace falta comprar nada.**
 
-> ⚠️ **Pendiente y bloqueante.** No está confirmado qué dominio controla Fresco ni si puede crear subdominios. El PDF original lleva pie de `frescomktg.com`, pero **eso es un indicio, no una confirmación** — hay que verificar acceso al DNS. Esto bloquea la verificación de WhatsApp Business y la configuración de SPF, DKIM y DMARC, así que conviene resolverlo en la primera semana.
+> ⚠️ **Lo único pendiente es el acceso al DNS.** Hay que poder crear los registros de los dos subdominios y los de SPF, DKIM y DMARC para el correo. Si el dominio lo administra un tercero —un proveedor de hosting o quien les hizo el sitio—, conseguir ese acceso puede tardar más que cualquier tarea técnica del proyecto. **Conviene pedirlo en la primera semana**, porque bloquea la verificación de WhatsApp Business y la entregabilidad del carril B.
 
 ---
 
