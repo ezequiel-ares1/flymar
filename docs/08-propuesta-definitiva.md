@@ -234,10 +234,14 @@ PUBLICACIÓN    21:00 · post → ad set → ad con object_story_id
 MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 ```
 
+**Arquitectura: monolito modular** — una sola aplicación desplegable con módulos de dominio de fronteras explícitas. No microservicios: no hay equipos que separar y sí una persona que mantendría N despliegues. Sustento completo, alternativas descartadas y despliegue en el **[documento 09](./09-arquitectura-y-despliegue.md)**.
+
 | Capa | Elección |
 |---|---|
 | Aplicación | **Next.js + TypeScript** — un lenguaje, un proyecto: web del manager, tablero interno, API y render |
-| Base de datos | **Postgres + pgvector** (Neon o Supabase), con `tenant_id` y aislamiento por fila desde el inicio |
+| Base de datos | **Supabase** (Postgres + pgvector + auth + storage), con `tenant_id` y RLS desde el primer commit |
+| Despliegue | **Vercel Pro** (USD 20 — Hobby prohíbe uso comercial) · alternativa: Railway USD 5 |
+| Dominio | **Subdominio de `frescomktg.com`** — marca blanca, verificación de WhatsApp y entregabilidad del correo |
 | Notificación | **WhatsApp Business API**, detrás de un adaptador de canal |
 | IA | Escalonada por tarea (ver §9). **No interviene en el carril A ni en la propuesta pre-llenada**, que es SQL sobre el histórico |
 | Render | **Satori + resvg** |
@@ -296,14 +300,17 @@ Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación a
 
 ### Recurrente
 
-| Concepto | 10 tiendas | 30 tiendas |
-|---|---:|---:|
-| Aplicación y base de datos | USD 20–30 | USD 40–60 |
-| Almacenamiento e imágenes | 2–5 | 8–15 |
-| WhatsApp (solo el aviso) | ~1 | ~3 |
-| IA (solo carril B) | 1–4 | 3–10 |
-| Dominio, correo, monitoreo | 5 | 10 |
-| **Total** | **USD 29–45** | **USD 64–98** |
+| Concepto | Arranque | 10 tiendas | 30 tiendas |
+|---|---:|---:|---:|
+| Despliegue (Vercel Pro) | USD 20 | USD 20 | 20–40 |
+| Base de datos (Supabase) | 0 *(free)* | 25 | 25–60 |
+| Almacenamiento e imágenes | 0–2 | 2–5 | 8–15 |
+| WhatsApp (solo el aviso) | ~1 | ~1 | ~3 |
+| IA (solo carril B) | 1–4 | 1–4 | 3–10 |
+| Dominio y monitoreo | ~1 | 1–11 | 10–20 |
+| **Total** | **USD 23–28** | **USD 50–66** | **USD 69–148** |
+
+*Cifras revisadas al alza tras verificar el despliegue: el plan gratuito de Vercel **prohíbe el uso comercial**, así que el mínimo real es Pro (USD 20). La estimación anterior de USD 29–45 asumía despliegue gratuito. Con Railway (USD 5) en lugar de Vercel, el arranque baja a ~USD 10. Desglose y alternativas en el [documento 09 §3](./09-arquitectura-y-despliegue.md).*
 
 ### Pago único de arranque
 
@@ -342,7 +349,7 @@ El *prompt caching* baja más el costo: el prompt de extracción y el glosario s
 |---|---:|---:|
 | Propuesta A (Escobedo) | 500 + add-ons | USD 23,000+ |
 | **Una persona más** | 2,500–3,500 | **USD 90,000–126,000** |
-| **Flymar** | 29–98 | **USD 1,100–3,600** |
+| **Flymar** | 50–148 | **USD 1,800–5,300** |
 
 ---
 
@@ -405,7 +412,90 @@ El *prompt caching* baja más el costo: el prompt de extracción y el glosario s
 
 ---
 
-## Anexo · Dónde nos apartamos de lo que sugirió Marcela
+## Anexo A · Trazabilidad: cada dolor de la primera reunión
+
+Repaso exhaustivo de la transcripción del 8 de agosto (primera sesión), para verificar que nada se perdió al comprimir.
+
+| # | Dolor, con su marca de tiempo | Cubierto por | Estado |
+|---|---|---|---|
+| 1 | Tres formatos de entrada: Excel, PDF, foto *(01:04)* | Carril B con extracción por visión | ✅ |
+| 2 | Categorizar los productos a mano *(01:34)* | Carril A trae la categoría; carril B la infiere | ✅ |
+| 3 | Escribir nombres en inglés y español *(01:34)* | Glosario determinista + catálogo canónico | ✅ |
+| 4 | Buscar la imagen de cada producto en Canva *(01:52)* | Matching por embeddings sobre el banco indexado | ✅ |
+| 5 | Si no la encuentra, la pide o la busca en Google *(01:52)* | Hueco marcado en la propuesta + solicitud al manager en el mismo flujo | ✅ |
+| 6 | Cambiar fecha, nombres, cantidad, precio y orden *(02:26)* | Todo sale del dato; el orden es regla de la plantilla | ✅ |
+| 7 | Plantilla distinta por tienda, con colores propios *(02:26)* | Plantilla como dato: colores, logo y rejilla por sucursal | ✅ |
+| 8 | Variante de festividad: fondo y elemento inferior *(02:52)* | Zona de temporada, una de las seis primitivas | ✅ |
+| 9 | Poder mover productos: *"el melón en vez del cilantro"* *(04:57)* | Listas reordenables en el editor | ✅ |
+| 10 | Revisar antes de enviar al manager *(15:46)* | Revisión interna por excepción (§3.5) | ✅ |
+| 11 | **Encuadre y tamaño de las imágenes** *(16:09)* | **Normalización de imagen en el catálogo: recorte a proporción fija, fondo homogéneo y validación al ingresar** | ⚠️ **Faltaba** |
+| 12 | *"Esta debería ir más grande"* — producto destacado *(16:09)* | Marca de producto héroe en la tarjeta | ✅ |
+| 13 | Descargar y recortar el borde antes de enviar *(18:11)* | Cuarto formato de render: versión sin borde para el manager | ✅ |
+| 14 | Feedback por precios, ortografía e imagen *(16:39)* | Glosario + validación + confirmación antes de maquetar | ✅ |
+| 15 | Saber cuándo envían y cuánto tardan *(17:50)* | Marcas de tiempo automáticas y tablero de estados | ✅ |
+| 16 | Meta ya no deja programar el anuncio *(21:46)* | Publicación por API a las 21:00 + anuncio inmediato | ✅ |
+| 17 | Se pierde medio día de vigencia *(22:10)* | +12 h recuperadas por campaña | ✅ |
+| 18 | Los 9 pasos manuales en Ads Manager *(24:39–26:24)* | Automatizados en la Fase 3 | ✅ |
+| 19 | Publicar a las 21:00 rinde mejor *(27:39)* | Regla del scheduler; se valida con A/B en la Fase 4 | ✅ |
+| 20 | No mide conversiones, compra en tienda física *(26:42)* | Cuatro vías de atribución (§4) | ✅ |
+| 21 | Reporte mensual simple para el cliente *(37:26)* | Informe mensual de rotación y desempeño | ✅ |
+| 22 | Justificar la inversión ante *"métele más dinero"* *(38:34)* | El informe, con datos de rotación | ✅ |
+| 23 | **Seguimiento en Slack copiando y pegando estados** *(29:13–31:15)* | **El tablero es la fuente de verdad y publica un mensaje único en Slack que se edita, en vez de reenviarse** | ⚠️ **Faltaba** |
+| 24 | **Asana marca "publicado" al final del día** *(33:39)* | **Cierre automático de la tarea cuando la publicación se confirma** | ⚠️ **Faltaba** |
+| 25 | Riesgo legal por imágenes de internet *(45:57)* | Auditoría en Fase 0 + licencia y origen por activo | ✅ |
+| 26 | Los managers rotan y cuesta que envíen ordenado *(40:13)* | Contacto principal cambiable en segundos (§3.5) | ✅ |
+| 27 | **Una sucursal puede pedir dos tipos de oferta con dos plantillas** *(32:45)* | **El modelo admite varias propuestas por tienda y fecha, cada una con su plantilla** | ⚠️ **Faltaba** |
+| 28 | **Hay tiendas que van solo en inglés** *(41:07)* | **`idioma` es atributo de la tienda, no una constante global** | ⚠️ **Faltaba** |
+| 29 | Si el feedback llega tarde, se pasa al día siguiente *(33:07)* | Escalado a Fresco y métrica de puntualidad | ✅ |
+| 30 | Ella es la única que hace los anuncios *(34:21)* | Automatización de la pauta | ✅ |
+
+**Cinco huecos detectados y ya incorporados.** Los tres primeros son operativos y baratos; los dos últimos (múltiples ofertas por tienda e idioma por sucursal) son **de modelo de datos**, así que hay que resolverlos en el esquema desde el inicio — retrofitearlos después obliga a migrar datos.
+
+---
+
+## Anexo B · Qué aporta esta propuesta, honestamente
+
+### Lo que NO es innovador
+
+Conviene decirlo antes que lo otro:
+
+- **Extraer datos de documentos con IA.** Lo hace todo el mundo. Ambas propuestas de terceros lo incluyen.
+- **Generar imágenes desde plantillas.** Hay decenas de productos maduros: Bannerbear, Templated, Creatomate.
+- **Publicar en Meta por API.** Es documentación pública.
+- **Un tablero de revisión y aprobación.** Es exactamente lo que ofrecía Escobedo.
+- **Matching de imágenes que aprende del uso.** Escobedo lo plantea explícitamente como *"motor de imágenes con memoria"*, y tiene razón.
+
+**La tecnología de este proyecto es commodity.** Cualquiera con tiempo puede construir cada pieza.
+
+### Lo que sí es diferencial
+
+| | Aporte | Frente a los proveedores | Frente a nuestras versiones previas |
+|---|---|---|---|
+| ① | **Adelantar el anuncio a las 21:00** recuperando ~12 h por campaña | **Ninguno toca Meta.** Es el hallazgo con mayor impacto económico directo de todo el proyecto, y es técnicamente simple: publicar por API en vez de programar en la interfaz | Ya estaba en la V1 |
+| ② | **Invertir la captura**: proponer en vez de pedir | Ambos parten de que el manager entrega datos. Ninguno cuestiona el origen | **Nuevo.** No estaba ni en la V1 ni en la V2 |
+| ③ | **Atribución de venta como entregable** | Ambos terminan en el flyer. Ninguno mide nada | **Nuevo aquí**; la V2 lo insinuaba vía retail media |
+| ④ | **Inteligencia cross-tienda** — ve 10 donde el manager ve 1 | Nadie lo menciona. Y Fresco **ya tiene ese activo**, solo que no lo capitaliza | **Nuevo** |
+| ⑤ | **El modelo de cobro como parte del diseño** | Ambos venden una herramienta con retainer | **Nuevo.** La V1 y la V2 eran propuestas técnicas |
+| ⑥ | **Verificar antes de proponer** | Escobedo prometió Canva editable y entrega JPG/PDF; Hexio construyó sobre una API que exige Enterprise | La V1 ya lo hacía; se mantiene |
+
+### El diferencial real, en una frase
+
+**No está en ninguna pieza tecnológica. Está en el encuadre.**
+
+Las dos propuestas de terceros —y nuestra propia V1— tratan esto como **un problema de producción gráfica**: entra un archivo, sale un flyer, cobremos por la pieza. Esta propuesta lo trata como **un problema de datos con un modelo de negocio detrás**: el flyer es un subproducto, el activo es el catálogo, y lo que se vende es saber qué mover y cuánto se vendió.
+
+De ahí se derivan todas las decisiones que las diferencian: por qué la captura va primero, por qué el catálogo es el activo, por qué la medición no es un extra, y por qué el modelo de cobro está en el documento técnico.
+
+### Y lo que hay que reconocerle a los demás
+
+- **Escobedo tenía razón** en que el motor de imágenes con memoria es el mecanismo correcto, y en que un sistema ya construido reduce el riesgo de ejecución. Su propuesta es la más ejecutable de las tres a corto plazo.
+- **Hexio tenía la arquitectura correcta** —extracción multimodal, embeddings, `pgvector`, revisión por confianza— y metas honestas (90 %, no 100 %). Su error fue una verificación de diez minutos, no de criterio.
+
+**Lo que ninguno tenía era el resto del negocio.** Ahí está la diferencia, y es más de estrategia que de ingeniería.
+
+---
+
+## Anexo C · Dónde nos apartamos de lo que sugirió Marcela
 
 | Decisión | Lo que ella sugirió | Por qué |
 |---|---|---|
