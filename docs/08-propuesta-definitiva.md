@@ -45,12 +45,12 @@ Y mejora con cada tienda nueva: **el crecimiento que hoy le pesa se convierte en
 
 Cambiar de herramienta sin cambiar el modelo de cobro solo abarata la misma cosa.
 
-| Escalón | Modelo | Requisito | Cuándo |
-|---|---|---|---|
-| 0 | Fee por pieza *(hoy)* | — | — |
-| 3 | **Suscripción mensual por tienda** | El sistema propuesto | **Mes 4–6** |
-| 4 | Base fija + variable por venta incremental | Atribución (§4) | Mes 7–12 |
-| 5 | Retail media: cobrar al CPG | 30+ tiendas y medición | Mes 12+ |
+| Modelo | Requisito | Cuándo |
+|---|---|---|
+| Fee por pieza *(hoy)* | — | — |
+| **Suscripción mensual por tienda** | El sistema propuesto | **Mes 4–6** |
+| Base fija + variable por venta incremental | Atribución (§4) | Mes 7–12 |
+| Retail media: cobrar al CPG | 30+ tiendas y medición | Mes 12+ |
 
 El escalón 3 es el siguiente paso realista: deja de ser comparable pieza a pieza, hace los ingresos predecibles y **el margen crece con la escala**, porque el costo marginal por tienda cae.
 
@@ -135,10 +135,10 @@ Martes 08:00 · WhatsApp del manager
 ### 3.3 Tres carriles, nadie queda fuera
 
 ```
-A · Notificación + web         ← el objetivo
-B · Email con Excel/PDF/foto   ← respaldo permanente, sin fecha de retiro
-B'· Audio o foto por WhatsApp  ← el carnicero a las 6 am
-C · API del POS de la tienda   ← el futuro, elimina la captura
+A · Notificación + web                          ← el objetivo
+B · Formato libre: Excel, PDF, foto o audio,    ← respaldo permanente,
+    por email o por WhatsApp                       sin fecha de retiro
+C · API del POS de la tienda                    ← el futuro, elimina la captura
 ```
 
 El carril B no es de segunda: quien quiera seguir mandando su Excel puede hacerlo indefinidamente. Su flyer sale más tarde porque hay que interpretarlo y confirmarlo. **La estandarización se incentiva, no se impone.**
@@ -154,6 +154,20 @@ El audio se transcribe y estructura, pero **siempre con confirmación explícita
 | Rendimiento medido (§4) | Mes 4 | Qué rotó de verdad |
 
 Las dos primeras semanas de cada tienda el formulario va vacío. **Esa curva es la que construye la dependencia:** el sistema se vuelve más útil cuanto más lleva operando, y ese valor no es transferible a un competidor.
+
+### 3.5 Reglas de operación
+
+Decisiones tomadas, no supuestos. Condicionan la máquina de estados y el modelo de permisos.
+
+| Regla | Definición |
+|---|---|
+| **Revisión interna de Fresco** | **Por excepción.** El flyer sale directo al manager salvo que el sistema marque algo: producto sin imagen, precio fuera del rango histórico de esa tienda, texto sin traducción en el glosario, o confianza baja en el carril B. Se espera que el 10–20 % caiga en revisión. *Es lo que hace que el ahorro de horas sea real: si el 100 % pasa por un humano, el cuello de botella se mantiene.* |
+| **Manager sin respuesta** | **Escala a Fresco, no se publica solo.** Recordatorio automático al mediodía; si a la hora de corte sigue sin responder, se notifica al equipo y **una persona decide** (llamar, publicar igual o saltar la semana). Publicar sin confirmación es un riesgo comercial que no se automatiza. |
+| **Destinatario del link** | **Un contacto principal por sucursal.** Sin edición concurrente ni conflictos. Fresco puede cambiarlo desde el tablero cuando rote el manager — que ocurre a menudo, así que el cambio debe tomar segundos, no un ticket. |
+| **Idioma de la web** | **Español e inglés, seleccionable** y recordado por contacto. El mercado es hispano pero opera en EE. UU.; ambos casos existen. |
+| **"Cambiar algo" tras ver el arte** | Reabre el mismo link mientras siga vigente. Si ya venció, el sistema emite uno nuevo automáticamente. |
+
+**Umbrales que hay que fijar con datos, no de antemano:** qué desviación de precio dispara la revisión, cuál es la hora de corte de cada tienda, y cuánta confianza basta en el carril B. Se calibran en el piloto de la Fase 1; empezar con valores conservadores y aflojarlos con evidencia.
 
 ---
 
@@ -190,7 +204,7 @@ El informe mensual con eso —lo que rotó, lo que no, y la recomendación para 
 
 **Seis primitivas, alcance congelado:** encabezado, banda de categoría, rejilla, tarjeta de producto, chip de precio (5 sintaxis) y zona de temporada. Nada entra si no aparece en un flyer real.
 
-**Render: Satori + resvg**, 50–200 ms sin navegador. 10 tiendas × 2 días × 4 formatos = 80 renders semanales ≈ **12 segundos de cómputo**.
+**Render: Satori + resvg**, 50–200 ms sin navegador. Cuatro formatos por oferta: **4:5 para el feed, 9:16 para stories, 1:1 para el carrusel y una versión recortada sin borde para enviar al manager**. 10 tiendas × 2 días × 4 formatos = 80 renders semanales ≈ **12 segundos de cómputo**.
 
 **Editor: sin librerías de canvas ni licencias.** Ninguna corrección real del equipo necesita mover píxeles —cambiar un precio es editar un campo, *"el melón donde el cilantro"* es reordenar una lista, cambiar la foto es elegir de un selector—. Listas reordenables con vista previa en vivo, HTML corriente. Ventaja adicional sobre un editor de lienzo: **no permite descuadrar la plantilla.** Para el 2 % de casos raros, la salida es Canva, que ya existe.
 
@@ -225,7 +239,7 @@ MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 | Aplicación | **Next.js + TypeScript** — un lenguaje, un proyecto: web del manager, tablero interno, API y render |
 | Base de datos | **Postgres + pgvector** (Neon o Supabase), con `tenant_id` y aislamiento por fila desde el inicio |
 | Notificación | **WhatsApp Business API**, detrás de un adaptador de canal |
-| Extracción | **Claude Sonnet 5** (visión + structured outputs), ~USD 0.05/documento |
+| IA | Escalonada por tarea (ver §9). **No interviene en el carril A ni en la propuesta pre-llenada**, que es SQL sobre el histórico |
 | Render | **Satori + resvg** |
 | Editor | Listas reordenables + vista previa — sin librerías de canvas |
 | Almacenamiento | **Cloudflare R2** (egreso gratuito) |
@@ -237,14 +251,16 @@ MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 
 ## 7 · Escalar de 7 a 30 tiendas
 
-| Tiendas | Horas/mes manual | Horas/mes con el sistema | Personas |
-|---:|---:|---:|---:|
-| 7 | 42 | ~7 | 0.2 |
-| 10 | 60 | ~10 | 0.3 |
-| 20 | 120 | ~18 | 0.5 |
-| 30 | 360 | ~25 | **0.7** |
+| Tiendas | Horas/mes manual | Horas/mes con el sistema | Personas (manual → sistema) |
+|---:|---:|---:|---|
+| 7 | 42 | ~10 | 0.3 → 0.06 |
+| 10 | 60 | ~13 | 0.4 → 0.08 |
+| 20 | 120 | ~23 | 0.8 → 0.14 |
+| 30 | 180 | ~33 | **1.1 → 0.2** |
 
-El costo manual crece **linealmente**; con el sistema crece **sublinealmente**, porque catálogo, glosario e imágenes ya están construidos y los productos se repiten entre supermercados latinos. A 30 tiendas la diferencia son ~335 horas al mes: dos o tres empleados.
+*Base del cálculo: 8 flyers/tienda/mes. Manual a 45 min = 6 h por tienda. Con el sistema, ~5 min por flyer más 3 h fijas de operación al mes. **Son estimaciones que la línea base de la Fase 0 debe confirmar.***
+
+El costo manual crece **linealmente**; con el sistema crece **sublinealmente**, porque catálogo, glosario e imágenes ya están construidos y los productos se repiten entre supermercados latinos. A 30 tiendas la diferencia son ~147 horas al mes: **casi un empleado a tiempo completo**, y creciendo.
 
 **Qué se rompe y cuándo:** hasta 15 tiendas, nada. De 15 a 25, revisar tantas propuestas se vuelve trabajo → aprobación automática por excepción para tiendas con histórico limpio. De 25 a 40, varias personas revisando → roles. Más de 40, otras agencias quieren usarlo → es la [propuesta V2](./06-propuesta-v2-plataforma.md).
 
@@ -255,18 +271,18 @@ El costo manual crece **linealmente**; con el sistema crece **sublinealmente**, 
 **La captura va primero.** Arreglar el origen hace más fácil todo lo demás.
 
 **Fase 0 · Fundaciones (semanas 1–2)**
-Auditoría y catalogación del banco de imágenes con licencia y origen. Línea base: cronometrar 10 flyers y **preguntar a dos managers cuánto les toma preparar el Excel**. Alta de WhatsApp Business API y **prueba de categorización de la plantilla** (§10, R2). Diseño de la plantilla base como dato. Preguntar a las sucursales si ya publican su circular en Flipp, Freshop o Mercatus.
+Auditoría y catalogación del banco de imágenes con licencia y origen. Línea base: cronometrar 10 flyers y **preguntar a dos managers cuánto les toma preparar el Excel**. Alta de WhatsApp Business API y **prueba de categorización de la plantilla** (§11, R1). Diseño de la plantilla base como dato. Preguntar a las sucursales si ya publican su circular en Flipp, Freshop o Mercatus.
 
 **Fase 1 · Captura (semanas 3–7)**
-Web responsive con link de vencimiento por tiempo. Notificación por WhatsApp. Carril B: extracción de Excel/PDF/foto con evals desde el día uno, más audio. Recordatorio escalonado y marcas de tiempo. **Piloto en 2 sucursales**; las demás siguen por email sin cambios.
-→ *El dato llega estructurado, el manager tarda 90 segundos y Fresco deja de transcribir. Es la mitad del ahorro con menos de la mitad del trabajo.*
+Web responsive bilingüe con link de vencimiento por tiempo. Notificación por WhatsApp y escalado a Fresco si no hay respuesta. Carril B: extracción de Excel/PDF/foto/audio con evals desde el día uno. Marcas de tiempo y tablero de estados. **Piloto en 2 sucursales**; las demás siguen por email sin cambios.
+→ *En esta fase el flyer todavía lo arma el equipo en Canva — pero con el dato ya limpio, ordenado y traducido. El ahorro viene de eliminar la transcripción, no la maquetación.*
 
 **Fase 2 · Composición (semanas 8–12)**
-Plantilla como dato con las seis primitivas. Render de las 9–10 sucursales. Editor de listas con vista previa. Salida a Canva como transición. Fan-out a 4:5 y 9:16.
-→ *Menos de 5 minutos de trabajo humano por flyer.*
+Plantilla como dato con las seis primitivas. Render de las 9–10 sucursales en los cuatro formatos. Editor de listas con vista previa. Revisión interna por excepción. Salida a Canva como transición.
+→ *Aquí desaparece la maquetación manual: menos de 5 minutos de trabajo humano por flyer.*
 
 **Fase 3 · Publicación (semanas 13–16)**
-Aprobación por WhatsApp. Publicación a las 21:00 y creación automática del anuncio (+12 h de vigencia, 0 pasos en Ads Manager). **DCO: 10–15 variantes por campaña** — Meta necesita al menos 10 para que el algoritmo aprenda; hoy recibe una.
+El arte vuelve al chat del manager para aprobación. Publicación a las 21:00 y creación automática del anuncio (+12 h de vigencia, 0 pasos en Ads Manager). **DCO: 10–15 variantes por campaña** — Meta necesita al menos 10 para que el algoritmo aprenda; hoy recibe una.
 
 **Fase 4 · Medición (semanas 17–22)**
 QR y códigos de oferta. Informe mensual de rotación. **Conversación con una sucursal para obtener su CSV de ventas por PLU.** Primer informe con atribución real.
@@ -278,16 +294,45 @@ Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación a
 
 ## 9 · Costos
 
+### Recurrente
+
 | Concepto | 10 tiendas | 30 tiendas |
 |---|---:|---:|
 | Aplicación y base de datos | USD 20–30 | USD 40–60 |
 | Almacenamiento e imágenes | 2–5 | 8–15 |
 | WhatsApp (solo el aviso) | ~1 | ~3 |
-| IA (extracción, carril B) | 3–6 | 8–15 |
+| IA (solo carril B) | 1–4 | 3–10 |
 | Dominio, correo, monitoreo | 5 | 10 |
-| **Total** | **USD 31–47** | **USD 69–103** |
+| **Total** | **USD 29–45** | **USD 64–98** |
+
+### Pago único de arranque
+
+| Concepto | Costo |
+|---|---:|
+| Cargar el histórico de flyers y Excels pasados al catálogo | USD 20–40 |
+| Etiquetar el banco de imágenes existente | USD 10–20 |
+| **Total** | **USD 30–60** |
 
 **Licencias: ninguna.** El editor no usa librerías de canvas ni SDK de pago.
+
+### Dónde interviene la IA, y dónde no
+
+Con el carril A funcionando, el uso de modelos cae mucho. Conviene ser explícito para no sobredimensionar el renglón:
+
+| Tarea | Modelo | Costo unitario | Frecuencia |
+|---|---|---:|---|
+| Clasificar el correo entrante (tienda, fecha, tipo) | Haiku 4.5 | ~USD 0.002 | Solo carril B |
+| Extraer un Excel, PDF o foto | Sonnet 5 | ~USD 0.035 | Solo carril B |
+| Documento que el validador marca como dudoso | Opus 5 | ~USD 0.08 | Excepción |
+| Transcribir y estructurar un audio | Sonnet 5 | ~USD 0.02 | Opcional |
+| **Cargar el histórico al catálogo** | Sonnet 5 | ~USD 0.035/doc | **Una sola vez** |
+| **Etiquetar el banco de imágenes** | Haiku 4.5 | ~USD 0.002/img | **Una sola vez** |
+
+**No usan IA:** el carril A (el dato llega estructurado), la traducción EN⇄ES (sale del glosario determinista), la propuesta pre-llenada (es SQL sobre el histórico) ni el render.
+
+El *prompt caching* baja más el costo: el prompt de extracción y el glosario son fijos, y las lecturas de caché cuestan ~0.1×.
+
+**El gasto recurrente cae conforme las tiendas adoptan la web.** Si 7 de 10 migran, el renglón de IA baja un 70 %. El único gasto que sí conviene hacer completo es el de arranque: cargar el histórico hace que la propuesta pre-llenada funcione **desde la semana 1** en lugar de tardar dos meses en acumular datos — y esa curva es justo lo que sostiene el argumento del foso (§2).
 
 **Sobre WhatsApp:** Meta factura por mensaje desde julio de 2025. En EE. UU. una plantilla *utility* cuesta ~USD 0.006 (~0.011 con margen del proveedor) y **la ventana de servicio de 24 h es gratuita**. Como solo se paga el mensaje que abre la conversación: ~86 avisos al mes a 10 tiendas ≈ **USD 1**.
 
@@ -297,7 +342,7 @@ Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación a
 |---|---:|---:|
 | Propuesta A (Escobedo) | 500 + add-ons | USD 23,000+ |
 | **Una persona más** | 2,500–3,500 | **USD 90,000–126,000** |
-| **Flymar** | 31–103 | **USD 1,300–4,000** |
+| **Flymar** | 29–98 | **USD 1,100–3,600** |
 
 ---
 
@@ -306,13 +351,13 @@ Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación a
 | | Hoy | Mes 3 | Mes 6 |
 |---|---|---|---|
 | Minutos de Fresco por flyer | 45–60 | < 15 | **< 5** |
-| Minutos del manager por envío | 20–30 | < 5 | **< 2** |
+| Minutos del manager por envío | por medir (paso 6, §13) | < 5 | **< 2** |
 | Flyers sin feedback de error | por medir | > 85 % | **> 95 %** |
 | Sucursales que responden antes del mediodía | por medir | 60 % | **> 90 %** |
 | Vigencia efectiva (campaña de 48 h) | ~36 h | ~48 h | ~48 h |
 | Variantes por campaña | 1 | 4 | **10–15** |
 | **Tiendas por persona** | ~7 | 15 | **> 30** |
-| **Escalón del modelo de cobro** | 0 | 0 | **3** |
+| **Modelo de cobro** | por pieza | por pieza | **suscripción/tienda** |
 | Sucursales con informe de rotación | 0 | 0 | **≥ 1** |
 | Banco con licencia documentada | por medir | > 60 % | **100 %** |
 
