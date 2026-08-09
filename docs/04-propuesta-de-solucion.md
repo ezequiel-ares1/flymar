@@ -270,21 +270,9 @@ Comparativa con las propuestas rechazadas:
 
 La diferencia no es negociación de precio: es que **el costo variable real de este sistema es de decenas de dólares al mes**, y el retainer de la propuesta A cobra mantenimiento sobre un sistema que, como bien dijo Ana Marcela, *"una vez armado, es siempre lo mismo"*. Análisis completo de ambas propuestas en el [documento 05](./05-revision-de-propuestas.md).
 
-### 7.2 Esfuerzo de desarrollo
+### 7.2 Secuencia recomendada
 
-Estimación en horas, para que el precio final lo fije quien ejecute:
-
-| Fase | Horas | Notas |
-|---|---|---|
-| Fase 0 · Fundaciones + spike | 12–18 | Mayormente proceso y auditoría, poco código |
-| Fase 1 · Extracción + revisión | 45–65 | El grueso del valor |
-| Fase 2 · Canva | 30–50 | Rango amplio: depende del resultado del spike |
-| Fase 3 · Meta | 25–40 | |
-| Fase 4 · Reportes y estados | 20–30 | |
-| Fase 5 · Capacitación | 8–12 | |
-| **Total** | **140–215 h** | |
-
-**Recomendación de contratación:** cerrar **Fase 0 + Fase 1 como primer contrato**. Entrega el 60–70 % del ahorro de tiempo, valida la extracción con datos reales, y deja la decisión sobre Canva informada por el spike en lugar de por una promesa.
+Arrancar por **Fase 0 + Fase 1** como primer tramo. Entrega el 60–70 % del ahorro de tiempo, valida la extracción con datos reales, y deja la decisión sobre Canva informada por el spike en lugar de por una promesa.
 
 ## 8. Indicadores de éxito
 

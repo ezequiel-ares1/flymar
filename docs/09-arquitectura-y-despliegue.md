@@ -171,7 +171,7 @@ Un VPS de Hetzner con Docker cuesta USD 6–15 al mes contra los ~45 de Vercel P
 **En contra, y pesa más que los USD 30:**
 - **El requisito explícito es "sin equipo técnico para mantener".** Self-hosted significa parchear el sistema operativo, renovar certificados, vigilar disco, gestionar backups y responder a vulnerabilidades — y nunca en el momento que te conviene.
 - **Coolify tuvo 11 CVEs críticas en enero de 2026**, con evasión de autenticación y ejecución remota. Ese es el costo real y no aparece en la factura.
-- **Tu tiempo vale más que la diferencia.** Dos horas al mes administrando el servidor ya se comieron el ahorro.
+- **Dos horas al mes administrando el servidor ya se comieron el ahorro**, y el mantenimiento nunca llega en el momento que conviene.
 - **Se pierden los previews por PR**, que con agentes de IA es un bucle de retroalimentación, no un lujo.
 
 **La decisión correcta no es "gestionado" ni "self-hosted": es que la decisión sea reversible.** Y eso se consigue con disciplina de diseño, no eligiendo self-hosted de entrada:
@@ -185,7 +185,7 @@ Un VPS de Hetzner con Docker cuesta USD 6–15 al mes contra los ~45 de Vercel P
 
 Con esa disciplina, mover todo a un VPS es un fin de semana, no una reescritura.
 
-**Recomendación: empezar gestionado, porque el recurso escaso es tu tiempo, y mover cuando el costo lo justifique** — que será cuando aparezca el render de video o cuando el tráfico de imágenes crezca de verdad.
+**Recomendación: empezar gestionado, porque el recurso escaso es el tiempo de operación, y mover cuando el costo lo justifique** — que será cuando aparezca el render de video o cuando el tráfico de imágenes crezca de verdad.
 
 ### 3.4 Costo de infraestructura, corregido
 
@@ -292,7 +292,7 @@ Honestamente, esto es lo que falta y **no debería asumirse**:
 | 4 | **Propiedad del catálogo al terminar una relación** | Si Fresco pierde un cliente, ¿los datos de esa tienda se exportan, se borran, se conservan? Conviene decidirlo **antes** de que haya datos valiosos dentro. |
 | 5 | **Accesibilidad de la web del manager** | Se usa en un pasillo, con una mano, posiblemente con guantes y mala luz. Objetivos de contraste y tamaño de toque, no como refinamiento posterior. |
 | 6 | **Retención de imágenes y de artes generados** | Cuántos meses se guardan los flyers viejos. Afecta al costo de almacenamiento y a poder reconstruir un histórico. |
-| 7 | **Tu tiempo y tu tarifa** | Todo el documento habla de costos de operación. **No dice cuánto cuesta construirlo ni cómo se cobra.** Es la pieza que falta para que esto sea una propuesta comercial y no solo un plan técnico. |
+| 7 | **Guion de comunicación hacia los managers** | Qué se les dice sobre el cambio de canal y qué no. Afecta a la percepción de servicio (§2 del documento 08) y conviene decidirlo antes de escribir el primer mensaje. |
 
 ---
 

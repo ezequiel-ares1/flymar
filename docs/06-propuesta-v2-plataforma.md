@@ -279,7 +279,7 @@ Referencia: un stack completo de Cloudflare (Workers + KV + D1 + R2) para los pr
 
 ### Lo que no aparece en la tabla
 
-No hay línea de "desarrollador". Ese es el cambio estructural de esta propuesta: **el costo de construcción se convierte en tu tiempo de dirección más tokens**, y los tokens a este volumen son ruido frente a cualquier nómina.
+No hay línea de "desarrollador". Ese es el cambio estructural de esta propuesta: **la construcción se dirige con agentes de IA**, y el consumo de tokens a este volumen es ruido frente a cualquier nómina.
 
 ## 8. Riesgos — la parte honesta
 
