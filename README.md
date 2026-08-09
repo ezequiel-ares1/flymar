@@ -27,7 +27,7 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | 05 | [Revisión de las propuestas recibidas](./docs/05-revision-de-propuestas.md) | Evaluación honesta de viabilidad y factibilidad de las dos propuestas de terceros: qué acierta cada una, qué está bloqueado y qué queda fuera de alcance |
 | 06 | [Propuesta V2 · Flymar Platform](./docs/06-propuesta-v2-plataforma.md) | Alternativa sin restricciones: plataforma multi-tenant de *content supply chain*, editor propio, DCO, retail media y stack elegido para construirse dirigiendo agentes de IA |
 | 07 | [Reinventar la captura](./docs/07-reinventar-la-captura.md) | Cómo entra hoy la información (email + Excel/PDF/foto) y seis niveles para interceptar el dato antes de que se degrade: acuse inteligente, WhatsApp Flows, audio, API del POS, EDI 889 y feeds de circular digital |
-| **08** | **[Propuesta definitiva](./docs/08-propuesta-definitiva.md)** ⭐ | **La propuesta vigente.** Revisada tras la segunda reunión: captura por WhatsApp con propuesta pre-llenada, motor de composición propio, atribución de ventas como foso competitivo y arquitectura para llegar a 30 tiendas sin sumar personal |
+| **08** | **[Propuesta definitiva](./docs/08-propuesta-definitiva.md)** ⭐ | **La propuesta vigente.** WhatsApp avisa y la web trabaja, propuesta pre-llenada que el manager confirma, motor de composición propio, atribución de ventas como foso y arquitectura para 30 tiendas sin sumar personal |
 
 ## Los tres hallazgos que cambian la conversación
 
@@ -54,7 +54,9 @@ Cuatro señales. **Dos levantan restricciones reales; las otras dos son contexto
 3. **Apareció el miedo a la desintermediación:** *"yo necesito que ellos sientan que me necesitan"*. Preocupación legítima; la táctica que propone —ocultar la herramienta— no lo es.
 4. **El crecimiento ya ocurrió:** *"acaban de abrir otras 2 tiendas… no voy a poner a todo mi equipo a hacer esto, no es negocio."*
 
-Donde la propuesta se aparta de lo que ella sugirió, lo dice explícitamente y explica por qué: **el formulario no es el objetivo sino el peldaño de arranque**, el diseño **se mejora en vez de replicarse**, y la desintermediación **se resuelve con atribución, no con secretismo**.
+Donde la propuesta se aparta de lo que ella sugirió, lo dice explícitamente: **el manager confirma una propuesta en vez de llenar un formulario**, el diseño **se mejora en vez de replicarse**, y la desintermediación **se resuelve con atribución, no con secretismo**.
+
+**El canal:** WhatsApp avisa con un link temporal; el trabajo ocurre en una web responsive donde el manager ve su flyer, ajusta y confirma. Si hay algo que mirar, se mira en la web; si no hay nada que mirar, se responde en el chat.
 
 ## La idea central de la propuesta vigente
 
