@@ -52,7 +52,7 @@ Cambiar de herramienta sin cambiar el modelo de cobro solo abarata la misma cosa
 | Base fija + variable por venta incremental | Atribución (§4) | Mes 7–12 |
 | Retail media: cobrar al CPG | 30+ tiendas y medición | Mes 12+ |
 
-El escalón 3 es el siguiente paso realista: deja de ser comparable pieza a pieza, hace los ingresos predecibles y **el margen crece con la escala**, porque el costo marginal por tienda cae.
+**La suscripción por tienda es el siguiente paso realista:** deja de ser comparable pieza a pieza, hace los ingresos predecibles y **el margen crece con la escala**, porque el costo marginal por tienda cae.
 
 **En una frase:** un formulario fácil no debilita a la agencia — debilita a la agencia que solo vendía llenar formularios.
 
@@ -69,10 +69,11 @@ El trabajo real del manager no es escribir *"pierna de pollo, 0.89, LB"*. Es **d
 Jerarquía de esfuerzo, que baja a medida que el sistema acumula histórico:
 
 ```
-25 min   Hoy: arma un Excel                              —
-10 min   Formulario en blanco                       semanas 1–2 de cada tienda
- 90 s    Revisar propuesta y ajustar 2–3 precios    semana 3+     ← objetivo
- 20 s    Elegir entre plan A, B o C                 mes 2+
+~25 min  Hoy: arma un Excel                         ← estimación, a confirmar
+                                                       con la línea base (§13, paso 6)
+ 10 min  Formulario en blanco                       primeras semanas de cada tienda
+ 90 s    Revisar propuesta y ajustar 2–3 precios    cuando hay histórico  ← objetivo
+ 20 s    Elegir entre plan A, B o C                 mes 3+
  10 s    Aprobar de un toque                        mes 4+ (con datos del POS)
 ```
 
@@ -86,7 +87,7 @@ Martes 08:00 · WhatsApp del manager
 │ Fresco Marketing                            │
 │ Su propuesta de ofertas de Metropolitan     │
 │ para el 13–14 de mayo está lista.           │
-│ 👉 fresco.mx/p/7Ka9dR   (válido 48 h)       │
+│ 👉 ofertas.<dominio>/p/7Ka9dR  (válido 48h) │
 └─────────────────────────────────────────────┘
                     ↓ un toque
 ┌─────────────────────────────────────────────┐
@@ -124,7 +125,7 @@ Martes 08:00 · WhatsApp del manager
 
 **Por qué la web y no un formulario dentro del chat (WhatsApp Flows):**
 
-1. **Un solo frontend.** El editor hay que construirlo igual para el equipo de Fresco; el manager usa el mismo con permisos recortados. Los Flows serían una segunda interfaz que mantener.
+1. **Un solo componente de edición.** El editor de listas hay que construirlo igual para el equipo de Fresco; el manager reutiliza **ese componente** en su propia superficie, con permisos recortados y sin acceso al tablero (§3.6). Los Flows serían una segunda interfaz que mantener.
 2. **El manager ve el flyer.** Todo el argumento de §2 depende de que perciba trabajo hecho. Un formulario de campos no lo transmite; su arte con su logo, sí.
 3. **Los Flows no pueden hacer lo que hace falta:** no admiten arrastrar para reordenar, ni vista previa en vivo, ni repetidores dinámicos.
 4. **Iterar sin permiso.** Cada cambio en un Flow pasa por publicación y revisión de Meta. La web se despliega en segundos.
@@ -149,11 +150,14 @@ El audio se transcribe y estructura, pero **siempre con confirmación explícita
 
 | Fuente | Disponible | Aporta |
 |---|---|---|
-| Histórico de la tienda | Semana 3 | Qué ofertó, cuándo, a qué precio |
-| Patrones estacionales | Mes 2 | Chile en septiembre, flores en mayo |
-| Rendimiento medido (§4) | Mes 4 | Qué rotó de verdad |
+| **Carga inicial del material pasado** | Fase 0, **parcial** | Arranque adelantado, no completo — ver abajo |
+| Histórico propio del sistema | Semana 3–4 | Qué ofertó, cuándo, a qué precio |
+| Patrones estacionales | Mes 2–3 | Chile en septiembre, flores en mayo |
+| Rendimiento medido (§4) | Mes 4+ | Qué rotó de verdad |
 
-Las dos primeras semanas de cada tienda el formulario va vacío. **Esa curva es la que construye la dependencia:** el sistema se vuelve más útil cuanto más lleva operando, y ese valor no es transferible a un competidor.
+> **Dato confirmado:** el material pasado de Fresco existe pero está **poco organizado y disperso**. La carga inicial cubrirá **parte** del catálogo, no todo. En consecuencia: **la propuesta pre-llenada arranca a medias y mejora con las semanas**, no funciona completa desde el día uno. Las primeras semanas de cada tienda el formulario irá vacío o parcialmente lleno, y el escalón de los tres planes se desplaza a **mes 3–4**.
+
+**Esa curva es la que construye la dependencia:** el sistema se vuelve más útil cuanto más lleva operando, y ese valor no es transferible a un competidor. La contrapartida es que **el argumento de venta no está disponible el primer mes** — hay que gestionar esa expectativa con Marcela.
 
 ### 3.5 Reglas de operación
 
@@ -276,7 +280,7 @@ MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 | Aplicación | **Next.js + TypeScript** — un lenguaje, un proyecto: web del manager, tablero interno, API y render |
 | Base de datos | **Supabase** (Postgres + pgvector + auth + storage), con `tenant_id` y RLS desde el primer commit |
 | Despliegue | **Vercel Pro** (USD 20 — Hobby prohíbe uso comercial) · alternativa: Railway USD 5 |
-| Dominio | **Subdominio de `frescomktg.com`** — marca blanca, verificación de WhatsApp y entregabilidad del correo |
+| Dominio | **Subdominio del dominio de Fresco** *(por confirmar cuál controla)* — marca blanca, verificación de WhatsApp y entregabilidad del correo |
 | Notificación | **WhatsApp Business API**, detrás de un adaptador de canal |
 | IA | Escalonada por tarea (ver §9). **No interviene en el carril A ni en la propuesta pre-llenada**, que es SQL sobre el histórico |
 | Render | **Satori + resvg** |
@@ -284,20 +288,20 @@ MEDICIÓN       Insights + QR/cupón + (mes 4) datos del POS
 | Almacenamiento | **Cloudflare R2** (egreso gratuito) |
 | Meta | **Marketing API** directa, con adaptador propio |
 
-**Cuatro controles de calidad**, porque el desarrollo lo dirige una persona con agentes de IA: typecheck y tests (segundos), *golden files* de render con diff de píxeles (~1 min) y **evals de extracción sobre 50 documentos reales** (~2 min). Si la precisión baja del 95 %, el despliegue se detiene.
+**Cinco controles de calidad**, porque el desarrollo lo dirige una persona con agentes de IA: typecheck y tests (segundos), *golden files* de render con diff de píxeles (~1 min), **evals de extracción sobre 50 documentos reales** (~2 min) y despliegue de vista previa por cada PR. Si la precisión de extracción baja del 95 %, el despliegue se detiene. Detalle en el [documento 09 §5](./09-arquitectura-y-despliegue.md).
 
 ---
 
 ## 7 · Escalar de 7 a 30 tiendas
 
-| Tiendas | Horas/mes manual | Horas/mes con el sistema | Personas (manual → sistema) |
+| Tiendas | Horas/mes manual | Horas/mes con el sistema | Equivalente a tiempo completo |
 |---:|---:|---:|---|
-| 7 | 42 | ~10 | 0.3 → 0.06 |
-| 10 | 60 | ~13 | 0.4 → 0.08 |
+| **9–10** *(hoy)* | **~60** | ~13 | 0.4 → 0.08 |
 | 20 | 120 | ~23 | 0.8 → 0.14 |
 | 30 | 180 | ~33 | **1.1 → 0.2** |
+| 40 | 240 | ~43 | 1.5 → 0.27 |
 
-*Base del cálculo: 8 flyers/tienda/mes. Manual a 45 min = 6 h por tienda. Con el sistema, ~5 min por flyer más 3 h fijas de operación al mes. **Son estimaciones que la línea base de la Fase 0 debe confirmar.***
+*Base del cálculo: 8 flyers/tienda/mes. Manual a 45 min = 6 h por tienda. Con el sistema, ~5 min por flyer más 3 h fijas de operación al mes. **Son estimaciones que la línea base de la Fase 0 debe confirmar.** El equivalente a tiempo completo se calcula sobre 160 h/mes; en la práctica ese trabajo hoy se reparte entre Marcela y 2–3 colaboradoras que además hacen otras cosas.*
 
 El costo manual crece **linealmente**; con el sistema crece **sublinealmente**, porque catálogo, glosario e imágenes ya están construidos y los productos se repiten entre supermercados latinos. A 30 tiendas la diferencia son ~147 horas al mes: **casi un empleado a tiempo completo**, y creciendo.
 
@@ -353,9 +357,9 @@ Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación a
 
 | Concepto | Costo |
 |---|---:|
-| Cargar el histórico de flyers y Excels pasados al catálogo | USD 20–40 |
+| Cargar el material pasado que se pueda recuperar | USD 10–25 |
 | Etiquetar el banco de imágenes existente | USD 10–20 |
-| **Total** | **USD 30–60** |
+| **Total** | **USD 20–45** |
 
 **Licencias: ninguna.** El editor no usa librerías de canvas ni SDK de pago.
 
@@ -376,7 +380,9 @@ Con el carril A funcionando, el uso de modelos cae mucho. Conviene ser explícit
 
 El *prompt caching* baja más el costo: el prompt de extracción y el glosario son fijos, y las lecturas de caché cuestan ~0.1×.
 
-**El gasto recurrente cae conforme las tiendas adoptan la web.** Si 7 de 10 migran, el renglón de IA baja un 70 %. El único gasto que sí conviene hacer completo es el de arranque: cargar el histórico hace que la propuesta pre-llenada funcione **desde la semana 1** en lugar de tardar dos meses en acumular datos — y esa curva es justo lo que sostiene el argumento del foso (§2).
+**El gasto recurrente cae conforme las tiendas adoptan la web.** Si 7 de 10 migran, el renglón de IA baja un 70 %.
+
+El de arranque conviene hacerlo igualmente, aunque **el material pasado esté disperso** (§3.4): cada documento que se recupere adelanta la curva de la propuesta pre-llenada, que es lo que sostiene el argumento del foso (§2). Con material incompleto el rango baja: **USD 15–40** en lugar de 30–60.
 
 **Sobre WhatsApp:** Meta factura por mensaje desde julio de 2025. En EE. UU. una plantilla *utility* cuesta ~USD 0.006 (~0.011 con margen del proveedor) y **la ventana de servicio de 24 h es gratuita**. Como solo se paga el mensaje que abre la conversación: ~86 avisos al mes a 10 tiendas ≈ **USD 1**.
 
@@ -400,12 +406,13 @@ El *prompt caching* baja más el costo: el prompt de extracción y el glosario s
 | Sucursales que responden antes del mediodía | por medir | 60 % | **> 90 %** |
 | Vigencia efectiva (campaña de 48 h) | ~36 h | ~48 h | ~48 h |
 | Variantes por campaña | 1 | 4 | **10–15** |
-| **Tiendas por persona** | ~7 | 15 | **> 30** |
+| **Horas del equipo al mes en producción** | ~60 *(9–10 tiendas)* | < 30 | **< 15** |
+| **Tiendas atendibles sin contratar** | 9–10 | 20 | **> 30** |
 | **Modelo de cobro** | por pieza | por pieza | **suscripción/tienda** |
 | Sucursales con informe de rotación | 0 | 0 | **≥ 1** |
 | Banco con licencia documentada | por medir | > 60 % | **100 %** |
 
-*"Tiendas por persona"* responde a **"no es negocio"**. *"Escalón del modelo"* responde a **"que sientan que me necesitan"**. Los demás son medios.
+*Con el equipo actual —Marcela más 2 o 3 colaboradoras— las 9–10 sucursales consumen del orden de 60 horas al mes solo en producción de flyers. Ese número y el techo de tiendas atendibles son los que responden a **"no es negocio"**; el modelo de cobro responde a **"que sientan que me necesitan"**. Los demás son medios.*
 
 ---
 
@@ -414,6 +421,7 @@ El *prompt caching* baja más el costo: el prompt de extracción y el glosario s
 | # | Riesgo | Mitigación |
 |---|---|---|
 | R1 | **Meta clasifica la plantilla como *marketing*** — categoría bloqueada para números de EE. UU. desde abril de 2025, sin fecha de reapertura (error `63049`) | **Prueba en la semana 1, antes de construir encima.** Redacción estrictamente utility. Si falla: ritual iniciado por el manager (ventana de servicio, gratis y sin restricción) o el mismo link por SMS/email vía el adaptador |
+| **R1b** | **Marcela no cambia el modelo de cobro** — todo el §2 depende de ello. Si sigue cobrando por pieza, el sistema abarata la misma cosa y no cambia nada de fondo: el foso no se construye y la desintermediación sigue latente | Es **decisión de negocio, no técnica** (paso 9, §13). Conviene abordarla antes de la Fase 2, cuando ya hay resultados que enseñar pero todavía no se rediseñó el servicio entero. El sistema funciona igual con el modelo viejo — solo que rinde mucho menos |
 | R2 | El manager no adopta la web | Tres carriles: nadie está obligado. Piloto en 2 sucursales y se mide. La propuesta pre-llenada hace que trabaje *menos*, no más |
 | R3 | Se percibe que "el manager lo hace todo" | Marca blanca de Fresco, lenguaje de servicio, y el informe de rotación al frente de la relación (§2) |
 | R4 | El navegador embebido de WhatsApp se comporta distinto | Probar en iOS y Android reales en la Fase 1, no en emulador |
@@ -441,7 +449,8 @@ El *prompt caching* baja más el costo: el prompt de extracción y el glosario s
 2. **Enviar la plantilla de WhatsApp a aprobación y verificar que Meta la clasifique como *utility*.** Cuesta un día y determina si el canal principal es viable. **No se construye la captura hasta tener la respuesta.**
 3. Iniciar la verificación del negocio en WhatsApp Business (es lo que más tarda).
 4. Elegir las **2 sucursales piloto** — idealmente una de las dos recién abiertas, sin costumbres que romper.
-5. Acceso de lectura a Canva para inventariar el banco de imágenes.
+5. Acceso de lectura a Canva para inventariar el banco de imágenes, **y rescatar todo el material pasado que se pueda** (flyers y Excels de semanas anteriores) para adelantar la curva de la propuesta pre-llenada.
+5b. **Confirmar qué dominio controla Fresco** y si puede crear subdominios. Bloquea la verificación de WhatsApp y la configuración del correo.
 6. **Preguntar a dos managers cuánto tiempo les toma preparar el Excel.** Es el número que justifica el cambio ante el cliente final.
 7. Diseñar la plantilla base como dato y presentarle a Marcela la versión propia frente a la de Canva.
 8. Definir con ella el guion hacia los managers: qué se les dice y qué no.
@@ -465,7 +474,7 @@ Repaso exhaustivo de la transcripción del 8 de agosto (primera sesión), para v
 | 8 | Variante de festividad: fondo y elemento inferior *(02:52)* | Zona de temporada, una de las seis primitivas | ✅ |
 | 9 | Poder mover productos: *"el melón en vez del cilantro"* *(04:57)* | Listas reordenables en el editor | ✅ |
 | 10 | Revisar antes de enviar al manager *(15:46)* | Revisión interna por excepción (§3.5) | ✅ |
-| 11 | **Encuadre y tamaño de las imágenes** *(16:09)* | **Normalización de imagen en el catálogo: recorte a proporción fija, fondo homogéneo y validación al ingresar** | ⚠️ **Faltaba** |
+| 11 | Encuadre y tamaño de las imágenes *(16:09)* | Normalización en el catálogo: recorte a proporción fija, fondo homogéneo y validación al ingresar | ✅ |
 | 12 | *"Esta debería ir más grande"* — producto destacado *(16:09)* | Marca de producto héroe en la tarjeta | ✅ |
 | 13 | Descargar y recortar el borde antes de enviar *(18:11)* | Cuarto formato de render: versión sin borde para el manager | ✅ |
 | 14 | Feedback por precios, ortografía e imagen *(16:39)* | Glosario + validación + confirmación antes de maquetar | ✅ |
@@ -481,12 +490,14 @@ Repaso exhaustivo de la transcripción del 8 de agosto (primera sesión), para v
 | 24 | **Asana marca "publicado" al final del día** *(33:39)* | Cierre automático de la tarea al confirmarse la publicación (§3.6) | ✅ |
 | 25 | Riesgo legal por imágenes de internet *(45:57)* | Auditoría en Fase 0 + licencia y origen por activo | ✅ |
 | 26 | Los managers rotan y cuesta que envíen ordenado *(40:13)* | Contacto principal cambiable en segundos (§3.5) | ✅ |
-| 27 | **Una sucursal puede pedir dos tipos de oferta con dos plantillas** *(32:45)* | **El modelo admite varias propuestas por tienda y fecha, cada una con su plantilla** | ⚠️ **Faltaba** |
-| 28 | **Hay tiendas que van solo en inglés** *(41:07)* | **`idioma` es atributo de la tienda, no una constante global** | ⚠️ **Faltaba** |
+| 27 | Una sucursal puede pedir dos tipos de oferta con dos plantillas *(32:45)* | El modelo admite varias propuestas por tienda y fecha, cada una con su plantilla | ✅ 🔑 |
+| 28 | Hay tiendas que van solo en inglés *(41:07)* | `idioma` es atributo de la tienda, no una constante global | ✅ 🔑 |
 | 29 | Si el feedback llega tarde, se pasa al día siguiente *(33:07)* | Escalado a Fresco y métrica de puntualidad | ✅ |
 | 30 | Ella es la única que hace los anuncios *(34:21)* | Automatización de la pauta | ✅ |
 
-**Cinco huecos detectados y ya incorporados.** Los tres primeros son operativos y baratos; los dos últimos (múltiples ofertas por tienda e idioma por sucursal) son **de modelo de datos**, así que hay que resolverlos en el esquema desde el inicio — retrofitearlos después obliga a migrar datos.
+**Los 30 dolores quedan cubiertos.** Cinco no estaban en la versión anterior de este documento y se incorporaron tras este repaso: encuadre de imágenes (11), Slack (23), Asana (24), múltiples ofertas por tienda (27) e idioma por sucursal (28).
+
+🔑 **Los dos marcados son de modelo de datos y hay que resolverlos en el esquema desde el primer commit.** Retrofitearlos después obliga a migrar datos en producción.
 
 ---
 
