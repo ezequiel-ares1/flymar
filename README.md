@@ -26,6 +26,7 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | 04 | [Propuesta de solución](./docs/04-propuesta-de-solucion.md) | Arquitectura, componentes clave, stack, plan por fases, costos, KPIs y lo que la propuesta *no* promete |
 | 05 | [Revisión de las propuestas recibidas](./docs/05-revision-de-propuestas.md) | Evaluación honesta de viabilidad y factibilidad de las dos propuestas de terceros: qué acierta cada una, qué está bloqueado y qué queda fuera de alcance |
 | 06 | [Propuesta V2 · Flymar Platform](./docs/06-propuesta-v2-plataforma.md) | Alternativa sin restricciones: plataforma multi-tenant de *content supply chain*, editor propio, DCO, retail media y stack elegido para construirse dirigiendo agentes de IA |
+| 07 | [Reinventar la captura](./docs/07-reinventar-la-captura.md) | Cómo entra hoy la información (email + Excel/PDF/foto) y seis niveles para interceptar el dato antes de que se degrade: acuse inteligente, WhatsApp Flows, audio, API del POS, EDI 889 y feeds de circular digital |
 
 ## Los tres hallazgos que cambian la conversación
 
