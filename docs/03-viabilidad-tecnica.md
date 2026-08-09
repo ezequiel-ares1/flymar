@@ -23,7 +23,7 @@ Verificación de cada pieza contra la documentación oficial, 2026-08-08. Este d
 
 ## 1. El hallazgo crítico: la Autofill API de Canva no sirve aquí
 
-Esta es la conclusión más importante del análisis técnico, y probablemente **explica por qué las propuestas anteriores costaban USD 5,000 y USD 15,000 sin llegar a demostrar un demo funcional con más de 2 productos**.
+Esta es la conclusión más importante del análisis técnico. **Y no es hipotética: una de las dos propuestas recibidas construye su integración de diseño precisamente sobre la Autofill API** (ver [documento 05](./05-revision-de-propuestas.md)).
 
 La forma "obvia" de automatizar Canva es la **Autofill API**: le pasas un *brand template* y un JSON de datos, y Canva rellena el diseño. Es exactamente lo que este proyecto necesita.
 

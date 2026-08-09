@@ -153,7 +153,7 @@ Estas condiciones no son negociables y **eliminan varias arquitecturas de entrad
 1. **El resultado debe quedar editable dentro de Canva.** No sirve un PNG o un PDF plano: el equipo debe poder mover el melón donde estaba el cilantro y cambiar la imagen de fondo cuando hay *holiday*.
 2. **Canva Pro / Premium, no Enterprise.** Confirmado en transcripción 44:56–45:03. Esto tiene consecuencias técnicas mayores (ver documento 03).
 3. **Los clientes siguen usando email.** *"El cliente no quiero que tenga acceso a mi plataforma."* (41:44–42:30). Rechaza explícitamente un portal para managers, con buen argumento: los managers rotan y ya costó mucho conseguir que envíen por correo con plantilla.
-4. **Presupuesto acotado.** Rechazó dos propuestas previas: **USD 5,000 + 500/mes** y **USD 15,000 + 1,500–2,000/mes**. El razonamiento es sólido: *"una vez que tenga armado esto, mis ofertas son siempre lo mismo, no necesito tantos cambios"*.
+4. **Presupuesto acotado.** La única propuesta cotizada que recibió pedía **USD 5,000 + 500/mes**; una segunda propuesta nunca llegó a cotizar. El razonamiento para rechazarla es sólido: *"una vez que tenga armado esto, mis ofertas son siempre lo mismo, no necesito tantos cambios"*. (Ver [documento 05](./05-revision-de-propuestas.md) — el resumen automático de la reunión registró por error una segunda cifra de USD 15,000 que en realidad fue una broma del consultor al cerrar.)
 5. **Mantenimiento mínimo.** Debe operar sin un equipo técnico permanente.
 6. **Quiere aprender a construirlo.** No busca solo comprar un entregable; busca capacitación (transcripción 12:59–13:18).
 

@@ -24,6 +24,7 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | 02 | [Benchmark: IA en marketing](./docs/02-benchmark-ia-en-marketing.md) | Cómo operan WPP/Publicis/Omnicom, cifras de ROI de automatización creativa, software de circulares, MCP, n8n, límites reales de la extracción con LLM, marco legal de imágenes |
 | 03 | [Viabilidad técnica](./docs/03-viabilidad-tecnica.md) | Verificación contra documentación oficial: por qué la Autofill API de Canva no sirve, cuál sí, cómo recuperar las 12 horas en Meta, costos reales de IA, matriz de riesgos |
 | 04 | [Propuesta de solución](./docs/04-propuesta-de-solucion.md) | Arquitectura, componentes clave, stack, plan por fases, costos, KPIs y lo que la propuesta *no* promete |
+| 05 | [Revisión de las propuestas recibidas](./docs/05-revision-de-propuestas.md) | Evaluación honesta de viabilidad y factibilidad de las dos propuestas de terceros: qué acierta cada una, qué está bloqueado y qué queda fuera de alcance |
 
 ## Los tres hallazgos que cambian la conversación
 
@@ -37,8 +38,8 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 
 | | Inicial | Mensual | 3 años |
 |---|---|---|---|
-| Propuesta rechazada A | USD 5,000 | USD 500 | USD 23,000 |
-| Propuesta rechazada B | USD 15,000 | USD 1,500–2,000 | USD 69,000–87,000 |
+| Propuesta A (Escobedo) | USD 5,000 | USD 500 | USD 23,000 |
+| Propuesta B (Hexio) | *sin cotizar* | *sin cotizar* | — |
 | **Flymar (operación)** | *desarrollo aparte* | **USD 18–64** | **USD 650–2,300** |
 
 ## Estado

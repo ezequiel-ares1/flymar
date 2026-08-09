@@ -147,7 +147,7 @@ Relevante porque el cliente tiene un incidente activo y está construyendo su ba
 
 1. **La dirección es correcta y está validada por la industria.** Fresco Marketing quiere en pequeño lo que WPP hace en grande.
 2. **Existe un vacío de producto** entre las herramientas empresariales de circulares (LAGO, Swiftly) y las agencias pequeñas. Lo que se construya aquí es potencialmente revendible.
-3. **Las piezas nuevas de 2026 (Canva MCP con edición en todos los planes, Meta Ads MCP oficial) cambian el cálculo** frente a las propuestas de USD 5,000 y USD 15,000 que el cliente rechazó. Buena parte de lo que antes había que construir, hoy se conecta.
+3. **Las piezas nuevas de 2026 (Canva MCP con edición en todos los planes, Meta Ads MCP oficial) cambian el cálculo** frente a la propuesta de USD 5,000 + 500/mes que el cliente rechazó. Buena parte de lo que antes había que construir, hoy se conecta.
 4. **n8n self-hosted es la elección de orquestación correcta** por modelo de cobro: el costo no escala con la cantidad de llamadas a IA.
 5. **La revisión humana debe estar en el diseño**, no como parche. Los benchmarks de extracción lo exigen, y además es lo que el propio cliente pidió ("me gustaría revisarlo primero").
 6. **El riesgo legal de las imágenes es el punto más urgente y el más barato de mitigar.** Auditar la biblioteca actual cuesta horas, no dinero, y el precedente ya existe.

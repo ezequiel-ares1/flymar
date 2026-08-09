@@ -260,11 +260,11 @@ Comparativa con las propuestas rechazadas:
 
 | Propuesta | Inicial | Mensual | 3 años |
 |---|---|---|---|
-| Proveedor A | USD 5,000 | USD 500 | **USD 23,000** |
-| Proveedor B | USD 15,000 | USD 1,500–2,000 | **USD 69,000–87,000** |
+| A · Escobedo Lara | USD 5,000 | USD 500 | **USD 23,000** |
+| B · Hexio Cloud & AI | *sin cotizar* | *sin cotizar* | — |
 | **Flymar (operación)** | *desarrollo aparte* | **USD 18–64** | **USD 650–2,300** |
 
-La diferencia no es negociación de precio: es que **el costo variable real de este sistema es de decenas de dólares al mes**, y las propuestas anteriores cobraban mantenimiento sobre un sistema que, como bien dijo Ana Marcela, *"una vez armado, es siempre lo mismo"*.
+La diferencia no es negociación de precio: es que **el costo variable real de este sistema es de decenas de dólares al mes**, y el retainer de la propuesta A cobra mantenimiento sobre un sistema que, como bien dijo Ana Marcela, *"una vez armado, es siempre lo mismo"*. Análisis completo de ambas propuestas en el [documento 05](./05-revision-de-propuestas.md).
 
 ### 7.2 Esfuerzo de desarrollo
 
