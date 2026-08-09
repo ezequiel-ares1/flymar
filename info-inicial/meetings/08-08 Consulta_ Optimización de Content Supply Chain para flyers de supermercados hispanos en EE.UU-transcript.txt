@@ -1,0 +1,176 @@
+00:00:01 Speaker 1
+Me escuchas?
+00:00:06 Speaker 1
+Hola y yo hablándote acá y estaba muteado.
+00:00:14 Speaker 2
+Hey yo ¿Qué está pasando?
+00:00:17 Speaker 1
+Ya a ver.
+00:00:20 Speaker 2
+Leo todo eso?
+00:00:22 Speaker 1
+Sí a ver qué dice Propuesta.
+00:00:24 Speaker 2
+De dos.
+00:00:29 Speaker 1
+Ah yo lo leo ya.
+00:00:32 Speaker 1
+Flymart Plataform, una plataforma de contención supply chain de para retail independiente construida por una persona dirigida a gente. Este documento ignora deliberadamente las restricciones que plantea Marcela Camba Pro. Nada de portal para manager, presupuesto mínimo, mantenimiento cero. Contradice por descuido la propuesta B1 siguiendo la propuesta correcta, la versión otra si partimos solo. De los dolores y no de las restricciones. Cuál sería la solución que además conviene convierte en un negocio?
+00:01:05 Speaker 1
+Al final hay una sesión donde esta sobre cuánto esto es una buena idea y cuánto es sobre ingeniería. Ya me imaginaba, el replanteo de Flyer no es el producto, todo el análisis, lo que te duele, transcribir documentos, un Excel, no existe un catálogo estructurado, traducir 16 nombres 2 veces a la semana, no existe un diccionario de producto. Buscar la foto de campus, no existe un DAM, carpeta de Canva sin Metadatos Carpeta, maquetar Canva, no existe una plantilla como dato Perder 2 horas esperando la aprobación de Meta, no existe organización Poder demostrar que la inversión funciona, no existe medición Ninguno de estos vacíos es un problema, si uno diseñar gráficos no es un poco de datos Cuando existe el dato, el flyer estático de ser entregable pasa a ser el primer render de muchos.
+00:01:54 Speaker 1
+Ofertar producto, precio de dirigencia en idioma, flyer cuatro, store, carro, service, carro, WhatsApp Business, pan, y cuando existe el dato, ninguno de estos vacíos es un problema, son muchos problemas de datos. Es exactamente el marco de la industria llamada Content Supply Chain, que es lo que Adobe vende como GenStudio a empresas, una cadena de suministro de contenido agéntico que conecta contexto empresarial de inteligencia de marca. Y agentes de IA a través de planificación, creación, activación, entrega, reporte, un cliente suyo report 35 x más contenido 65 más rápido.
+00:02:29 Speaker 1
+La tesis de la versión 2 construye eso mismo con alcance quirúrgico para el nicho que Adobe y agencias que es un mercado, porque esto puede ser un negocio y no sólo una herramienta. Mira 3 datos de la investigación que juntos cambian la conversación. Retail media es la categoría más rápida de crecimiento y publicidad digital y uso de 40 supera los 10 en Estados Unidos. El circular tradicional rinde al menos comparado con retail media, cuando un retail mide, cuando un retail, mientras el anuncio circular entregó a un punto.
+00:03:02 Speaker 1
+El circular tradicional rinde mal comparado con retail media entre los supermercados independiente están fuera de la fiesta, no tienen plataformas de Walmart o. Que sí pierden los fondos de trader de marketing, pero controla el volumen de muchas los márgenes brutos. Ahora mira los anexos reales de Fresco Marketing con esos rojos, con esos ojos: Salsa Valentina, Bimbo, Hot Dogs, Martín Pabros. Cada flyer es inventario publicitario, hoy se regala.
+00:03:37 Speaker 1
+Produce 60 piezas al mes, 710 tiendas dirigidas en público hispano en Estados Unidos que esas marcas quieren alcanzar. Y que casi nunca ningún retail mediano se venda bien. Lo único que falta para modificar es medir, saber cuántas impresiones e interacciones recibir el bloque de salsa y poder facturárselo a la marca. Eso convierte al modelo de negocio de cobrar honorarios por armar flyers a cobrar un porcentaje de la inversión de los CPG.
+00:04:07 Speaker 1
+Costos por. Qué es eso?
+00:04:12 Speaker 1
+A poco eso se puede.
+00:04:15 Speaker 1
+Te está diciendo que sí se puede, pues ya le he dicho ya que libere todo su nivel,
+00:04:19 Speaker 2
+Ya eso está loco.
+00:04:23 Speaker 1
+A cobrar preguntarle inversión que es una curva de ingresos completamente distinta. Arquitectura, entrada es ser un problema, captura, la entrada debe ser un problema, email, WhatsApp, Business, portal opcional API, ingesta, identifica tienda, vigencia, formato, intención, Firegraph, el activo real de foto, oferta, activo, precio, unidad, PostgreSQL, Project. PG vector multi-tenant con row-level a su madre un row-level ya no te maltrates eh motor de comprensión del mini Canva pero dominio específico plantilla JSON versionada en un archivo render SVG corre en el Edge editor World PPS filtro ah mira fan-out un dato no hay informativo generado en paralelo flyer histórica rosa el video 16 segundos en el interactivo de fit.
+00:05:09 Speaker 1
+Publicidad pauta como código Meta, postal de más de SEO más 10 15 variantes, WhatsApp, TikTok para que publiques en todo esto mi edición lo que nadie más tiene de este nicho por producto las 5 decisiones el offer graph es el producto no el flyer todo lo demás es reemplazar el catálogo canónico con nombres bilingües curados en mini Canva construir el 15% de los, Construir el 5%, la atención es construir Canva, es la trampa clásica de este tipo de proyectos.
+00:05:43 Speaker 1
+Un proyecto de ofertas no necesita 1000 tipografías, filtros, animaciones ni colaboración en tiempo real. Necesita 6 primitivas, rejilla de productos, 3 tarjetas, plantilla, tarjeta de productos, tratas tan chip de precio, banda de categoría, encabezado, zona de temporada, fondo y frag intercambiar por festividad. Eso es un editor de dominio, no un editor de diseño. Y tiene una propiedad valiosa como las primitivas son semánticas, la IA puede operarlas. Pon el melón.
+00:06:14 Speaker 1
+Ya primerr, ya mano, una acá hablando en serio y tú, con las bromas. Es un intercambio de dos nodos de un JSON, no una manipulación de píxeles. Opciones, fábrica, hot, fábrica, opción de implementación evaluadas, Fabric.js, GraffitiSmith. El estándar de facto para editores de diseño 2016 licencias, control total, construye todo el bar, capas, exportación, flujos desde cero, comba gratis, excelente para una interactiva más bajo nivel.
+00:06:47 Speaker 1
+Todo el editor es trabajo tuyo, polonko, trae reparación polonko para el editor, con modelo de pantalla, los usa. Compran meses de trabajo y su enfoque Jason caso de Hedging Hedging para producir masiva. No es un editor, agentes de verdad, no un chatbot, ingesta, catálogo, mira, agentes de ingesta de catálogo creativo, campaña, report, 3 reglas que paran son políticas de soy variante de vez en cuando, en el stack elegido, lenguaje, type script, a punto a punto.
+00:07:36 Speaker 1
+Contratos soft tipos a la monorepo, PNP, tuvo repo, a su PostgreSQL,
+00:07:42 Speaker 2
+A que eso está muy difícil,
+00:07:46 Speaker 1
+Lo que sí, ella es más avanzada, ella es software grande, a renders, actor y SG editor, Potlo, no, y a Claudio Sonnet, orquestación N8 8 para integración de código. Los cuatro bultos de relación, type text, Colleen, Francia. Hoja de ruta etapa 1 etapa 2 etapa 3 costos pero ese es un stack.
+00:08:24 Speaker 2
+Mira 100,000 usuarios Wow.
+00:08:57 Speaker 2
+Eso ya está demasiado,
+00:09:00 Speaker 1
+Sí quería verlo nada más.
+00:09:41 Speaker 3
+Mhm.
+00:10:03 Speaker 1
+Está más más grande ya.
+00:10:10 Speaker 3
+Ya ¿Sabes qué es lo que no me cuadra ahorita?
+00:10:15 Speaker 1
+El tema de Canva ¿Qué? Me puede intentar ¿No? Por Canva haciéndolo ¿No?
+00:10:24 Speaker 1
+Canva ¿Tú quieres seguir editando en Canva o quieres tener un editor propio?
+00:10:31 Speaker 2
+Pues que es más sencillo, o sea, yo quiero que se parezca a mi, a mi diseño, sabes lo más que se pueda, pero.
+00:10:46 Speaker 1
+Si no,
+00:10:47 Speaker 2
+Pues se puede proponer otra cosa. O sea, si la solución es más sencilla en otro lado y se parece el diseño, que es como la propuesta que me envió Andrés, era como. Se parecía a algunos elementos, no eran como los que yo tenía en Canva, pero se parecían. Entonces, pues no se me hace tan mal porque ese diseño yo se lo puedo proponer a mi cliente porque está más difícil hacerlo en Canva, ¿no?
+00:11:18 Speaker 2
+O sea,
+00:11:19 Speaker 1
+Sí, pero acá tengo respecto a la forma de trabajar de Marcela que recibe sólo por Email.
+00:11:33 Speaker 1
+Y solo email los requerimientos, no requerimientos y las formas en cómo se está recibiendo la información, por ejemplo, el. Excel, imágenes, PDF.
+00:12:30 Speaker 2
+Porque si no,
+00:12:31 Speaker 1
+La otra es estos procedimientos.
+00:14:10 Speaker 3
+Qué pasó?
+00:14:16 Speaker 2
+Porque si no la otra es simplemente hacer lo que Andrés me mandó, no? No simplemente pues, pero hacer como el dashboard, como el lo estaba haciendo.
+00:14:25 Speaker 1
+Cuál era eso? El que te mandó de los 5000? Si.
+00:14:32 Speaker 1
+Espera. No, lo que yo veo acá es tu proceso. Tenemos una limitante porque la forma de cómo estás recopilando no tiene un or, no tiene una estructura. Y eso te lleva a esos caminos, o sea, la forma de cómo estás recopilando la información no me parece tecnológica. Me das a entender?
+00:14:54 Speaker 1
+Mira acá, mira, eso te dice buen ángulo, es la capa que más se puede ganar y que ambas propuestas dieron por sentadas. Ves? O sea, tu forma de trabajar a mí no me gusta, te digo así honestamente, no. O sea, que le que les pida solamente y hace este Excel, o sea, otra forma de cómo se puede hacer eso. De repente me das a entender, por ejemplo, a nosotros que nos hacen ya, por ejemplo, para enviar una alta tienes que llenar, dice un formulario de Google para solicitar un nuevo personal.
+00:15:28 Speaker 1
+Para solicitar que a un personal le cambien el nombre o el cargo, tienes que adjuntar un archivo Excel, tienes que poner su DNI, su apellido, su nombre, como si eso no lo tuvieran. O sea, demás, no hay un sistema que me facilita ese trabajo. No lo.
+00:15:45 Speaker 2
+Que también estoy pensando es que se puede así como llenar el formulario, que lo puedan hacer desde el celular, como cuando llenas una encuesta.
+00:15:53 Speaker 1
+Ajá, claro, que escoja ya ahí un diseñito de 4 4, no sé, o sea,
+00:15:59 Speaker 2
+Que él me llene más bien que ellos me llenen, así como que sea una encuesta y ellos me llenen. Limón va a estar a tanto, o sea, me entiendes,
+00:16:08 Speaker 1
+Ordenar, no limón, tal, tal, tal, tal,
+00:16:12 Speaker 2
+Si yo les enviara la encuesta semana tras semana y en el celular está como primer ordenador, carnicería y me pongan todos los productos de carnicería y luego.
+00:16:21 Speaker 1
+Y ellos eligen de acuerdo de repente a la mayor cantidad que tienen de stock, de repente no para que atraiga más, no, porque de acuerdo al precio de repente no.
+00:16:32 Speaker 2
+O sea, ellos deciden, ellos deciden sus ofertas, pero a mí para que ya me envíen directamente los números, los nombres que diga, en vez de que me lo envíen por Excel, que sea ya la encuesta y ellos mismos lo ordenan.
+00:16:46 Speaker 1
+Marce, te has te has puesto a preguntar cuánto tiempo les toma a ellos llenar ese Excel o esas imágenes y enviar el correo. Por ejemplo, tú ponte en el lugar de ellos, pues o sea, hay que dar una solución también más profunda, bacán, ¿no? Entonces tú ponte en lugar de ellos, ya tú eres cliente, ya. Cuánto tiempo te toma hacer lo que Marge te te está pidiendo? No, porque yo en serio te veo que es un proceso un poco tradicional, desfasado, que usa, o sea, como tú dices, una aplicación o algo, no ingresas y ahí generas pues tu orden de repente.
+00:17:26 Speaker 1
+No y. Suavecito, vas poniendo carnes, no sé qué, luego esto, luego eso, no entender, o sea, no sé, ese procedimiento, esa forma de que estás de la que estás trabajando, lo que estás solicitando por email, yo le veo como un cuello de botella, ahí yo lo veo y eso ya me genera más cuello de botellas, pues, y qué tal si atacamos eso, si atacamos eso y organizamos mejor eso, lo demás va a fluir más rápido.
+00:17:58 Speaker 2
+Sí, es que sí, en vez de que ellos lo hagan así y luego yo esa misma información la pase, que ya sea de una.
+00:18:04 Speaker 1
+Claro, no mamá, o sea, como si ellos mismos ya te como Uber, como Uber que se creó el mapa, no de para los conductores, no, nadie algo así, no va a entender. Entonces, este por ahí yo veo, no, por ahí yo veo eso, no que pucha. Mira, acá ya te dice reinventar la captura, mira, este documentito de ahí ya te ya lo lees ya después y a ver qué opinas y haz tus anotes tus notas haces para ya no alargarla mucho.
+00:18:44 Speaker 2
+Entonces por ahí,
+00:18:45 Speaker 1
+Por ahí yo creo, Marce, por ahí es el problema, el origen es el problema, creo yo, por ahí creo que hay que atacar y vas a ver, pucha. Si se ordena, si se estandariza bien esa forma de cómo haces, no vas a tener el problema ya de cambiar, no es decir, a la vez ellos ya mismo armarían su esto, no su propio.
+00:19:08 Speaker 2
+Yo No quiero que ellas sepan que ellos lo están armando, porque si no van a decir, pues yo lo puedo hacer.
+00:19:17 Speaker 1
+Y cómo lo van a publicar?
+00:19:19 Speaker 2
+No, pues yo es que yo necesito que ellos sientan que me necesitan. Porque si no ellos le van a decir al primo, pues tú publícalo, ya no necesito la agencia porque yo lo estoy haciendo, ¿me entiendes? Como ya hay mucha competencia aquí, yo necesito que ellos sientan que me necesitan, que ellos no sepan que yo estoy usando una herramienta que me lo hace más rápido.
+00:19:42 Speaker 1
+Yo creo que está siendo así, estás, tienes que reinventarte un poco ahí. Lo que ellos necesitan que contigo es que vendan, que ganen.
+00:19:56 Speaker 1
+Y yo te lo dejo ahí para que lo pienses.
+00:19:58 Speaker 2
+Yo Necesito crearles la necesidad de que me necesitan a mí, no que contraten a alguien más,
+00:20:04 Speaker 1
+No, pero con otros no pueden vender, pues o sea, contigo venden más, pero con los otros no venden más. Y eso por qué? Es para analizar ahí, no para pensar más a fondo, no, porque por ejemplo, acá también hay agencias de marketing, cantidad de agencias de marketing. Ya y más allá te hacemos vender, ya y qué te vende ahí que te hacemos vender, ya y esto que te hago vender, ya mira, nosotros usamos esta plataforma donde tú validas, te damos un check out de tu diseñito, si te gusta bacán, luego ya nosotros te encargamos, ya y al final yo creo, Marce, que es lo que vendes, no sé, piénsalo, o sea, a mí me gusta, yo tengo, no sé, en stock, vamos a un caso extremo, yo tengo en stock 1 t de carne.
+00:20:56 Speaker 1
+Y en todo un día, Marce me lo ha vendido y yo tengo otro cosa de stock, pero esta con esta publicidad no me la ha vendido, solamente he vendido 500.
+00:21:08 Speaker 1
+Entonces, yo creo que es enfocarse en la cuál es la necesidad real. La necesidad real es no es que a ti te necesiten, eso ya va a ser como una, como ya algo implícito, algo como que como. Como una consecuencia de me deja entender, pero no es el problema real. El problema real creo que más allá es que ellos deben de vender contigo y si venden contigo, entonces estás creando esa necesidad que tú dices, pero paralelamente, sigilosamente, de forma secundaria.
+00:21:48 Speaker 1
+Entonces, si yo vendo con Marce mis 1000 t, que me ella yo uso ya, pero no, ellos con ella vendo. Entonces, Marce, te necesito a ti, me da a entender y encima le facilitas el trabajo también.
+00:22:04 Speaker 1
+No me ves como te estoy bloqueando, creo, no estoy, sí me entiendes cuando te digo bloqueando. Sí, entonces esa si tú tú ves desde esa forma, va cara, está bien que tú que tú me dices que tú que generes esa necesidad. Pero yo creo que esa necesidad debe ser una consecuencia producto de un algo, ¿no? Entonces ahí va. Cómo estás de acuerdo conmigo? Que ¿Qué le interesa más a la agencia o a la sucursal vender su stock?
+00:22:38 Speaker 1
+No le interesa con quien sea, pero que venda su stock.
+00:22:43 Speaker 1
+Cómo hacemos que se ven que venda su stock?
+00:22:47 Speaker 1
+Los diseños hay que cambiar. La forma en la hora en la que publicitas, el contenido, el textito, la forma que le pones, no sé, eso es lo que va. Este. Tú tienes que saber, por ejemplo, a ti te serviría bastante de cómo sabes que esa campaña que estás haciendo está funcionando. A ver, no sabes, estás en la nube porque tú me dices que no tienes retorno, no, pero si ese cliente dice, oye, con esta campaña, ¿cuánto has vendido?
+00:23:19 Speaker 2
+Porque a ellos les gusta ver los likes en las páginas. Para ellos eso piensan que les fue bien.
+00:23:25 Speaker 1
+Claro, pero como pero ahí me pasas nomás el link y yo le lleno de likes con bots.
+00:23:34 Speaker 2
+También hay que.
+00:23:35 Speaker 1
+Hacer eso.
+00:23:39 Speaker 1
+Ya entonces este por ahí yo creo que es. Entonces hay que ver la forma. De cómo hacer eso, no? Y esta conversación ha sido bien chévere, se lo voy a pasar a la guía para que lo analicen, no ya este sí,
+00:23:58 Speaker 2
+Ya eso lo veo yo, leo esta última,
+00:24:10 Speaker 2
+Pues Eso estaría bien, o sea, en vez de reinventar también yo mi proceso, hacerlo más fácil, algo que ellos también como modernizarnos, Claro.
+00:24:21 Speaker 1
+Claro, porque honestamente te siento que estás haciendo un procedimiento muy manual, muy anticuado.
+00:24:28 Speaker 2
+Eso ya no, porque acaban de abrir otras 2 tiendas, entonces están creciendo muy rápido y nosotros necesitamos algo que no voy a poner a todo mi equipo a hacer esto, ¿sabes? O sea, no me conviene a mí, no está, no es negocio.
+00:24:43 Speaker 1
+Claro, ya listo, Marce. Voy a pasar a esta última transcripción que hice de este de este última parte y ya te he pasado ahí la el número 7, ya reinventar la captura.
+00:24:59 Speaker 2
+OK.
+00:25:01 Speaker 2
+Ya Tiene que estar acá.
+00:25:04 Speaker 1
+Ya verde.

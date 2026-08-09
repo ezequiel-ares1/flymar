@@ -1,5 +1,9 @@
 # 04 · Propuesta de solución — Flymar
 
+> ⚠️ **Documento superado.** La segunda reunión del 2026-08-08 levantó tres de las restricciones sobre las que está construida esta propuesta: Canva dejó de ser obligatorio, Marcela pidió ella misma un formulario móvil para los managers, y aparecieron dos requisitos nuevos (no perder la intermediación con el cliente, y escalar sin sumar personal).
+>
+> **La propuesta vigente es el [documento 08](./08-propuesta-definitiva.md).** Este documento se conserva porque su análisis técnico sigue siendo válido y porque documenta el razonamiento bajo las restricciones originales.
+
 **Para:** Fresco Marketing · Ana Marcela
 **Alcance:** del correo del manager al anuncio publicado en Meta, con reportes
 **Fecha:** 2026-08-08
