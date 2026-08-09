@@ -169,6 +169,41 @@ Decisiones tomadas, no supuestos. Condicionan la máquina de estados y el modelo
 
 **Umbrales que hay que fijar con datos, no de antemano:** qué desviación de precio dispara la revisión, cuál es la hora de corte de cada tienda, y cuánta confianza basta en el carril B. Se calibran en el piloto de la Fase 1; empezar con valores conservadores y aflojarlos con evidencia.
 
+### 3.6 Seguimiento: tres superficies separadas
+
+El estado del pipeline es **información interna**. El manager no debe verlo: si ve colas, estados y tiempos de proceso, está viendo **la operación**, y ahí empieza a pensar *"esto es un proceso, no un servicio"*. Ve su propuesta, su arte y su resultado — nada más.
+
+| Superficie | Quién | Qué muestra | Naturaleza |
+|---|---|---|---|
+| **Tablero interno** | Marcela y sus colaboradoras | Las N tiendas, en qué va cada una, qué está bloqueado, qué espera revisión, histórico | **Fuente de verdad** |
+| **Slack** | El mismo equipo | Lo de hoy, empujado | **Espejo del tablero** |
+| **Web del manager** | Un manager, una tienda | Su propuesta, su flyer, su informe | **Externa y acotada** |
+
+**La regla: lo interno muestra el *cómo*; lo externo muestra el *qué*.**
+
+#### Slack y Asana se quedan — y dejan de ser trabajo
+
+Este es el cambio que hace que el equipo lo adopte en vez de resistirlo. Hoy alguien **escribe** en Slack: copia el mensaje, actualiza qué tienda va en qué estado, lo vuelve a pegar, varias veces al día. Es la razón de que el estado esté siempre algo desactualizado.
+
+Con el tablero como origen, **Slack se escribe solo**: un mensaje por día que el bot edita conforme avanza todo.
+
+```
+📋 Ofertas · martes 13 de mayo
+✅ Metropolitan     aprobado · programado 21:00
+✅ Blue Ridge       aprobado · programado 21:00
+🟡 Independence     esperando confirmación del manager (desde 08:00)
+🔴 Northtown        precio fuera de rango — necesita revisión
+⚪ Shawnee          sin enviar · recordado 12:00
+```
+
+No se les quita la herramienta que ya usan y donde tienen notificaciones: se les quita el trabajo de mantenerla. Igual con **Asana**, que sigue siendo el recordatorio del día de Marcela — la tarea se cierra sola cuando la publicación se confirma.
+
+#### Por qué además hace falta el tablero
+
+Slack responde *"¿qué pasó hoy?"*. No responde *"¿cuántas veces Northtown envió tarde este trimestre?"*, *"¿qué precios publicamos el 13 de mayo?"* ni *"¿qué está bloqueado ahora mismo en las 30 tiendas?"*.
+
+A 7 tiendas el chat alcanza. **A 20 o 30 no** — y ese es el escenario que justifica el proyecto.
+
 ---
 
 ## 4 · De los likes a la venta
@@ -278,7 +313,7 @@ El costo manual crece **linealmente**; con el sistema crece **sublinealmente**, 
 Auditoría y catalogación del banco de imágenes con licencia y origen. Línea base: cronometrar 10 flyers y **preguntar a dos managers cuánto les toma preparar el Excel**. Alta de WhatsApp Business API y **prueba de categorización de la plantilla** (§11, R1). Diseño de la plantilla base como dato. Preguntar a las sucursales si ya publican su circular en Flipp, Freshop o Mercatus.
 
 **Fase 1 · Captura (semanas 3–7)**
-Web responsive bilingüe con link de vencimiento por tiempo. Notificación por WhatsApp y escalado a Fresco si no hay respuesta. Carril B: extracción de Excel/PDF/foto/audio con evals desde el día uno. Marcas de tiempo y tablero de estados. **Piloto en 2 sucursales**; las demás siguen por email sin cambios.
+Web responsive bilingüe con link de vencimiento por tiempo. Notificación por WhatsApp y escalado a Fresco si no hay respuesta. Carril B: extracción de Excel/PDF/foto/audio con evals desde el día uno. **Tablero interno con la máquina de estados, espejo en Slack y cierre automático de la tarea de Asana.** **Piloto en 2 sucursales**; las demás siguen por email sin cambios.
 → *En esta fase el flyer todavía lo arma el equipo en Canva — pero con el dato ya limpio, ordenado y traducido. El ahorro viene de eliminar la transcripción, no la maquetación.*
 
 **Fase 2 · Composición (semanas 8–12)**
@@ -286,13 +321,15 @@ Plantilla como dato con las seis primitivas. Render de las 9–10 sucursales en 
 → *Aquí desaparece la maquetación manual: menos de 5 minutos de trabajo humano por flyer.*
 
 **Fase 3 · Publicación (semanas 13–16)**
-El arte vuelve al chat del manager para aprobación. Publicación a las 21:00 y creación automática del anuncio (+12 h de vigencia, 0 pasos en Ads Manager). **DCO: 10–15 variantes por campaña** — Meta necesita al menos 10 para que el algoritmo aprenda; hoy recibe una.
+El arte vuelve al chat del manager para aprobación. Publicación a las 21:00 y creación automática del anuncio (+12 h de vigencia, 0 pasos en Ads Manager). **DCO: 10–15 variantes por campaña** — Meta necesita al menos 10 para que el algoritmo aprenda; hoy recibe una. **Instagram se activa aquí**: mismo Business Portfolio, mismo ad set, coste marginal casi nulo.
 
 **Fase 4 · Medición (semanas 17–22)**
 QR y códigos de oferta. Informe mensual de rotación. **Conversación con una sucursal para obtener su CSV de ventas por PLU.** Primer informe con atribución real.
 
-**Fase 5 · Inteligencia (mes 6+)**
-Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación automática por excepción.
+**Fase 5 · Inteligencia y consulta (mes 6+)**
+Propuesta basada en rendimiento medido. Alta de tienda en minutos. Aprobación automática por excepción. **Dashboard de consulta para el manager** — ver más abajo.
+
+> **Sobre el dashboard para managers.** Es una decisión de negocio antes que técnica y **conviene consultarla con Marcela**, porque toca directamente lo de §2. Dos condiciones si se hace: (a) **muestra resultado, nunca operación** — cuánta gente vio sus ofertas, qué productos generaron más interés, comparativa con el mes anterior y la recomendación; nunca CPM, CTR, estructura de campañas ni segmentación, porque eso es enseñarle a prescindir de la agencia; y (b) **el informe empujado es el producto y el dashboard es el respaldo**, no al revés — la evidencia dice que cuesta que respondan un correo, así que un panel que hay que ir a visitar no lo visita nadie. Añade además carga de soporte: 30 managers con panel son 30 personas que preguntan.
 
 ---
 
@@ -440,8 +477,8 @@ Repaso exhaustivo de la transcripción del 8 de agosto (primera sesión), para v
 | 20 | No mide conversiones, compra en tienda física *(26:42)* | Cuatro vías de atribución (§4) | ✅ |
 | 21 | Reporte mensual simple para el cliente *(37:26)* | Informe mensual de rotación y desempeño | ✅ |
 | 22 | Justificar la inversión ante *"métele más dinero"* *(38:34)* | El informe, con datos de rotación | ✅ |
-| 23 | **Seguimiento en Slack copiando y pegando estados** *(29:13–31:15)* | **El tablero es la fuente de verdad y publica un mensaje único en Slack que se edita, en vez de reenviarse** | ⚠️ **Faltaba** |
-| 24 | **Asana marca "publicado" al final del día** *(33:39)* | **Cierre automático de la tarea cuando la publicación se confirma** | ⚠️ **Faltaba** |
+| 23 | **Seguimiento en Slack copiando y pegando estados** *(29:13–31:15)* | Tablero interno como fuente de verdad + mensaje único en Slack que el bot edita (§3.6) | ✅ |
+| 24 | **Asana marca "publicado" al final del día** *(33:39)* | Cierre automático de la tarea al confirmarse la publicación (§3.6) | ✅ |
 | 25 | Riesgo legal por imágenes de internet *(45:57)* | Auditoría en Fase 0 + licencia y origen por activo | ✅ |
 | 26 | Los managers rotan y cuesta que envíen ordenado *(40:13)* | Contacto principal cambiable en segundos (§3.5) | ✅ |
 | 27 | **Una sucursal puede pedir dos tipos de oferta con dos plantillas** *(32:45)* | **El modelo admite varias propuestas por tienda y fecha, cada una con su plantilla** | ⚠️ **Faltaba** |

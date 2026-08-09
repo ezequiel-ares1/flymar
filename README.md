@@ -28,7 +28,7 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | 06 | [Propuesta V2 · Flymar Platform](./docs/06-propuesta-v2-plataforma.md) | Alternativa sin restricciones: plataforma multi-tenant de *content supply chain*, editor propio, DCO, retail media y stack elegido para construirse dirigiendo agentes de IA |
 | 07 | [Reinventar la captura](./docs/07-reinventar-la-captura.md) | Cómo entra hoy la información (email + Excel/PDF/foto) y seis niveles para interceptar el dato antes de que se degrade: acuse inteligente, WhatsApp Flows, audio, API del POS, EDI 889 y feeds de circular digital |
 | **08** | **[Propuesta definitiva](./docs/08-propuesta-definitiva.md)** ⭐ | **La propuesta vigente.** WhatsApp avisa y la web trabaja, propuesta pre-llenada que el manager confirma, motor de composición propio, atribución de ventas como foso y arquitectura para 30 tiendas sin sumar personal. Incluye trazabilidad de los 30 dolores de la primera reunión y qué aporta frente a las otras propuestas |
-| 09 | [Arquitectura y despliegue](./docs/09-arquitectura-y-despliegue.md) | Sustento técnico: monolito modular y por qué no microservicios, cada elección de stack con sus alternativas descartadas, dónde se despliega, dominio, entornos, CI/CD, backups, seguridad y lo que sigue sin definir |
+| 09 | [Arquitectura y despliegue](./docs/09-arquitectura-y-despliegue.md) | Sustento técnico: monolito modular y por qué no microservicios, cada elección de stack con sus alternativas descartadas, las dos superficies por subdominio, máquina de estados en vez de motor de workflow, despliegue y por qué no self-hosted, roadmap de plataformas y lo que sigue sin definir |
 
 ## Los tres hallazgos que cambian la conversación
 

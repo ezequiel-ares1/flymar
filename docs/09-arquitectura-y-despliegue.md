@@ -31,6 +31,39 @@ apps/web                    ← Next.js: web del manager + tablero interno + API
 
 **Estilo interno:** capas finas. `route handler → caso de uso → repositorio`. Sin ORM mágico ni abstracciones especulativas. Los agentes de IA escriben mejor código sobre patrones directos que sobre arquitecturas hexagonales con cinco capas de indirección.
 
+### 1.1 Dos superficies, un proyecto
+
+```
+app.frescomktg.com      → tablero interno · autenticado (Supabase Auth)
+ofertas.frescomktg.com  → web del manager · link temporal, sin cuenta
+```
+
+Mismo código, mismo despliegue, mismo modelo de datos, **separación limpia por subdominio**. El manager no puede llegar a la vista interna ni por accidente ni manipulando una URL, y la marca que ve es la de Fresco en ambos casos.
+
+**Cuidado deliberado:** que el código de la superficie interna no acabe en el *bundle* que descarga el manager. Con Server Components se maneja, pero hay que verificarlo, no confiarse — es el tipo de fuga que no da error y nadie nota.
+
+### 1.2 Máquina de estados, no motor de workflow
+
+El pipeline necesita ~12 estados y transiciones, algunas de las cuales requieren aprobación humana:
+
+```
+recibido → extraído → propuesto → confirmado → compuesto →
+  ├─ revisión (por excepción) → corregido ─┐
+  └────────────────────────────────────────┴→ enviado →
+        ├─ con feedback → corregido (ciclo)
+        └─ aprobado → programado → publicado → anunciado
+```
+
+**Se implementa como una máquina de estados tipada**, con transiciones válidas declaradas y verificadas por el compilador. Son dos días de trabajo.
+
+**Lo que no se construye:** un motor de workflow configurable. Es la tentación clásica —"y si mañana cambia el proceso"— y es un pozo sin fondo: un BPM propio son meses y nunca se termina. Si el proceso cambia, se cambia el código, que está tipado y probado.
+
+### 1.3 Actualización del tablero: *polling*, no realtime
+
+Los eventos del pipeline ocurren cada varios minutos, no cada segundo. **Consultar cada 15–30 segundos es indistinguible de tiempo real** para este caso, y evita WebSockets, reconexión, estado duplicado y una clase entera de errores intermitentes.
+
+Supabase Realtime está disponible si algún día se justifica —una sala compartida donde varias personas revisan a la vez, a partir de ~25 tiendas— pero **no en la primera versión**.
+
 ---
 
 ## 2 · Stack, decisión por decisión
@@ -131,6 +164,29 @@ El sobrecosto frente a Railway son USD 15 al mes, y compra una cosa que aquí va
 
 **Si el presupuesto aprieta, Railway a USD 5 es una opción legítima** y no compromete la arquitectura: la aplicación es la misma.
 
+### 3.5 ¿Y self-hosted? La decisión correcta es que sea reversible
+
+Un VPS de Hetzner con Docker cuesta USD 6–15 al mes contra los ~45 de Vercel Pro más Supabase. La tentación es evidente. Pero el ahorro es aparente:
+
+**En contra, y pesa más que los USD 30:**
+- **El requisito explícito es "sin equipo técnico para mantener".** Self-hosted significa parchear el sistema operativo, renovar certificados, vigilar disco, gestionar backups y responder a vulnerabilidades — y nunca en el momento que te conviene.
+- **Coolify tuvo 11 CVEs críticas en enero de 2026**, con evasión de autenticación y ejecución remota. Ese es el costo real y no aparece en la factura.
+- **Tu tiempo vale más que la diferencia.** Dos horas al mes administrando el servidor ya se comieron el ahorro.
+- **Se pierden los previews por PR**, que con agentes de IA es un bucle de retroalimentación, no un lujo.
+
+**La decisión correcta no es "gestionado" ni "self-hosted": es que la decisión sea reversible.** Y eso se consigue con disciplina de diseño, no eligiendo self-hosted de entrada:
+
+| Regla | Por qué |
+|---|---|
+| Next.js en modo `standalone` | Corre en cualquier contenedor |
+| Postgres estándar, sin extensiones exclusivas del proveedor | Migrable a Neon o a Postgres propio |
+| Almacenamiento compatible con S3 | R2, S3 o MinIO son intercambiables |
+| **Nada de primitivas que aten** | Sin Vercel KV, sin Vercel Blob, sin lógica de negocio dentro de Edge Functions de Supabase |
+
+Con esa disciplina, mover todo a un VPS es un fin de semana, no una reescritura.
+
+**Recomendación: empezar gestionado, porque el recurso escaso es tu tiempo, y mover cuando el costo lo justifique** — que será cuando aparezca el render de video o cuando el tráfico de imágenes crezca de verdad.
+
 ### 3.4 Costo de infraestructura, corregido
 
 | Concepto | Arranque | Maduro (10 tiendas) |
@@ -210,7 +266,21 @@ Lo mínimo que hace falta para no depurar a ciegas, sin montar un stack de monit
 
 ---
 
-## 8 · Lo que sigue sin definir
+## 8 · Roadmap de plataformas — qué presiona el stack y qué no
+
+Los tres candidatos habituales no son comparables entre sí, y conviene no tratarlos como "una integración más" cada uno.
+
+| Plataforma | Esfuerzo | ¿Altera el stack? | Veredicto |
+|---|---|---|---|
+| **Instagram** | **Bajo** — mismo Business Portfolio, misma Marketing API, los *placements* se activan en el mismo ad set. El post orgánico usa la Instagram Graph API, mismo ecosistema | No | ✅ **Fase 3.** Coste marginal casi nulo, valor inmediato |
+| **TikTok** | **Alto** — otra API, otro modelo de objetos, y sobre todo **otro formato**: un flyer estático de 16 productos no funciona; hace falta video vertical | **Sí — el único que lo hace.** Renderizar video toma minutos y CPU sostenida: no cabe en funciones serverless y exige un contenedor con recursos dedicados o un servicio de render aparte | ⚠️ **Mes 9+**, y solo si hay una razón de negocio, no por completar la lista |
+| **Google Ads** | **Muy alto** — modelo distinto (búsqueda y Performance Max, no social), se alimenta de un feed de productos con precio y disponibilidad, no de flyers | Sí, y además obliga a construir el feed | ❌ **No es otra plataforma: es otro negocio.** El comprador de supermercado latino no busca "carne de res" en Google; ve la oferta en Facebook |
+
+**Lo que importa hoy, y no cuesta nada:** que el adaptador de publicación exista desde el primer día con interfaz propia (`publicar(oferta, plataforma)`). Con eso, añadir Instagram es implementar una interfaz; sin eso, es refactorizar.
+
+---
+
+## 9 · Lo que sigue sin definir
 
 Honestamente, esto es lo que falta y **no debería asumirse**:
 
