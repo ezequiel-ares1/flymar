@@ -25,6 +25,7 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | 03 | [Viabilidad técnica](./docs/03-viabilidad-tecnica.md) | Verificación contra documentación oficial: por qué la Autofill API de Canva no sirve, cuál sí, cómo recuperar las 12 horas en Meta, costos reales de IA, matriz de riesgos |
 | 04 | [Propuesta de solución](./docs/04-propuesta-de-solucion.md) | Arquitectura, componentes clave, stack, plan por fases, costos, KPIs y lo que la propuesta *no* promete |
 | 05 | [Revisión de las propuestas recibidas](./docs/05-revision-de-propuestas.md) | Evaluación honesta de viabilidad y factibilidad de las dos propuestas de terceros: qué acierta cada una, qué está bloqueado y qué queda fuera de alcance |
+| 06 | [Propuesta V2 · Flymar Platform](./docs/06-propuesta-v2-plataforma.md) | Alternativa sin restricciones: plataforma multi-tenant de *content supply chain*, editor propio, DCO, retail media y stack elegido para construirse dirigiendo agentes de IA |
 
 ## Los tres hallazgos que cambian la conversación
 
@@ -42,8 +43,21 @@ Un pipeline que lee los tres formatos de entrada con IA, valida y traduce con un
 | Propuesta B (Hexio) | *sin cotizar* | *sin cotizar* | — |
 | **Flymar (operación)** | *desarrollo aparte* | **USD 18–64** | **USD 650–2,300** |
 
+## Dos caminos sobre la mesa
+
+| | **V1** · [documento 04](./docs/04-propuesta-de-solucion.md) | **V2** · [documento 06](./docs/06-propuesta-v2-plataforma.md) |
+|---|---|---|
+| Qué es | Automatizar el flujo de Fresco | Construir un producto |
+| Respeta las restricciones del cliente | Sí | No (deliberadamente) |
+| Primer valor | ~4 semanas | ~6 semanas |
+| Costo operativo | USD 18–64/mes | USD 20–900/mes según etapa |
+| Riesgo | Bajo | Medio-alto |
+| Techo | Ahorro de horas | Empresa |
+
+**Recomendación:** construir la **Etapa I de la V2** y venderla como la **V1**. Es casi el mismo trabajo y el mismo plazo; la diferencia está en los cimientos (Offer Graph, multi-tenant desde el primer commit, plantilla como dato, evals). Nada de eso cuesta tiempo extra si se decide al empezar, y todo es carísimo de retrofitear después.
+
 ## Estado
 
 📄 Fase de propuesta. Sin implementación todavía.
 
-Siguiente paso recomendado: contratar **Fase 0 + Fase 1** (fundaciones + extracción y revisión), que entrega el 60–70 % del ahorro de tiempo y deja la decisión sobre Canva informada por un spike técnico real.
+Siguiente paso: el spike técnico de Canva (2 días) y la auditoría del banco de imágenes — ambos independientes de qué camino se elija.
